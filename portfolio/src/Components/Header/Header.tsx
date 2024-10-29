@@ -34,12 +34,12 @@ const Header = ({ tab, setTab, title, Tabs }: IProps): JSX.Element => {
                 });
               idx === 2 &&
                 window.scrollTo({
-                  top: window.innerHeight + 1200,
+                  top: window.innerHeight + 1300,
                   behavior: "smooth",
                 });
               idx === 3 &&
                 window.scrollTo({
-                  top: window.innerHeight * 2 + 1200,
+                  top: window.innerHeight * 2 + 1300,
                   behavior: "smooth",
                 });
               idx === 4 &&

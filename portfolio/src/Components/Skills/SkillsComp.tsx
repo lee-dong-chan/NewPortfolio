@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Observer } from "../../lib/Observer";
 import { IICon } from "./SkillsContainer";
-import { FaArrowDown } from "react-icons/fa";
 import { motion } from "framer-motion";
 interface IProps {
   tab: number;
@@ -55,24 +54,28 @@ const SkillsComp = ({
                   setskill(0);
                 }}
               >
-                {icons.map((item: IICon, idx: number) => (
-                  <div
-                    className="m-10 flex flex-col items-center"
-                    key={idx}
-                    onMouseOver={() => {
-                      setskill(idx + 1);
-                    }}
-                  >
-                    {item.icon}
-                    <div className="absolute  translate-y-14 text-[0.8rem] ">
-                      {item.name}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="absolute flex top-0 right-[-5rem] ">
-                <FaArrowDown size={40} className="rotate-45 " />
-                <div className="font-bold">Hover Icon</div>
+                {icons.map(
+                  (item: IICon, idx: number) =>
+                    tab === 3 && (
+                      <motion.div
+                        initial={{ translateY: -20 }}
+                        animate={{ translateY: 0 }}
+                        transition={{ delay: idx / 10, duration: 1 }}
+                        className={`m-10 flex flex-col items-center ${
+                          skill === idx + 1 && "animate-pulse"
+                        }`}
+                        key={idx}
+                        onMouseOver={() => {
+                          setskill(idx + 1);
+                        }}
+                      >
+                        {item.icon}
+                        <div className="absolute  translate-y-14 text-[0.8rem] ">
+                          {item.name}
+                        </div>
+                      </motion.div>
+                    )
+                )}
               </div>
             </motion.div>
           ) : (
@@ -97,10 +100,6 @@ const SkillsComp = ({
                     </div>
                   </div>
                 ))}
-              </div>
-              <div className="absolute flex top-0 right-[-5rem] ">
-                <FaArrowDown size={40} className="rotate-45 " />
-                <div className="font-bold">Hover Icon</div>
               </div>
             </div>
           )}

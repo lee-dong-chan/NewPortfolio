@@ -32,7 +32,7 @@ const ProfileComp = ({
   }, [setview]);
 
   return (
-    <div className="w-[100%] h-[1200px]  px-20 pb-20 ">
+    <div className="w-[100%] h-[1300px]  px-20 pb-20 ">
       <div className=" pb-10 text-[3rem] " ref={ref}>
         Profile
       </div>
@@ -43,7 +43,7 @@ const ProfileComp = ({
           transition={{ duration: 1.5 }}
         >
           <div className="w-[60rem] flex justify-between items-center ">
-            <div className="w-[30rem] h-[30rem] border-black border-2 rounded-[2rem] overflow-hidden">
+            <div className="w-[23rem] h-[20rem] rounded-[2rem] overflow-hidden">
               <img
                 alt="profile"
                 src="/imgs/myimg.png"
@@ -76,7 +76,7 @@ const ProfileComp = ({
               <div className="text-[1.5rem]">Career</div>
               <div>
                 {Profile.career.map((item, idx: number) => (
-                  <div className="flex text-[1.2rem]" key={idx}>
+                  <div className="p-1 flex text-[1.2rem]" key={idx}>
                     <div className="pe-5">{item.date}</div>
                     <div>{item.content}</div>
                   </div>
@@ -85,12 +85,12 @@ const ProfileComp = ({
             </div>
             <div className="py-5">
               <div className="my-2 flex  border-2 border-black"></div>
-              <div className="text-[1.5rem]">자격/어학/수상</div>
+              <div className="text-[1.5rem]">certification</div>
               <div className="my-2 flex  border border-gray-200"></div>
               <div>
                 {Profile.certification.map((item, idx: number) => (
                   <div key={idx}>
-                    <div className="flex">
+                    <div className="p-1 flex">
                       <div className={`pe-[5rem]`}>{item.date}</div>
                       <div className={`w-[20rem] pe-[3rem]`}>{item.name}</div>
                       <div className={`w-[10rem] pe-[3rem]`}>{item.state}</div>
@@ -115,7 +115,7 @@ const ProfileComp = ({
       ) : (
         <div>
           <div className="w-[60rem] flex justify-between items-center ">
-            <div className="w-[30rem] h-[30rem] border-black border-2 rounded-[2rem] overflow-hidden">
+            <div className="w-[23rem] h-[20rem] border-black border-2 rounded-[2rem] overflow-hidden">
               <img
                 alt="profile"
                 src="/imgs/myimg.png"
@@ -144,7 +144,7 @@ const ProfileComp = ({
               <div className="text-[1.5rem]">Career</div>
               <div>
                 {Profile.career.map((item, idx: number) => (
-                  <div className="flex text-[1.2rem]" key={idx}>
+                  <div className="p-1 flex text-[1.2rem]" key={idx}>
                     <div className="pe-5">{item.date}</div>
                     <div>{item.content}</div>
                   </div>
@@ -153,12 +153,12 @@ const ProfileComp = ({
             </div>
             <div className="py-5">
               <div className="my-2 flex  border-2 border-black"></div>
-              <div className="text-[1.5rem]">자격/어학/수상</div>
+              <div className="text-[1.5rem]">certification</div>
               <div className="my-2 flex  border border-gray-200"></div>
               <div>
                 {Profile.certification.map((item, idx: number) => (
                   <div key={idx}>
-                    <div className="flex">
+                    <div className="p-1 flex">
                       <div className={`pe-[5rem]`}>{item.date}</div>
                       <div className={`w-[20rem] pe-[3rem]`}>{item.name}</div>
                       <div className={`w-[10rem] pe-[3rem]`}>{item.state}</div>

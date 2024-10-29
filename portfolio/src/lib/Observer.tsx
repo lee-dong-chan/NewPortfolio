@@ -14,7 +14,7 @@ export const Observer = ({ state, ref }: IObserver) => {
         state(false);
       }
     },
-    { threshold: 0.1 }
+    { threshold: 1 }
   );
 
   const current = ref.current;
