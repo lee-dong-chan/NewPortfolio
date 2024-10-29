@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import ProjectComp from "./ProjectComp";
 
 export interface IProject {
+  idx: number;
   img: string[];
   pagename?: string[];
   link: string;
@@ -27,7 +28,7 @@ const ProjectContainer = ({ tab, setTab }: IProps): JSX.Element => {
   const [view, setview] = useState<boolean>(false);
   const [project, setproject] = useState<number>(1);
   const [image, setimage] = useState<number>(0);
-  const [Projectinfo, setProjectinfo] = useState<boolean>(true);
+  const [Projectinfo, setProjectinfo] = useState<number>(1);
   const [maketext, setmaketext] = useState<number>(0);
   const ProjectName: string[] = useMemo(() => {
     return ["핀터레스트", "햄스터 마켓", "요기요", "번개장터", "LOL인벤"];
@@ -36,6 +37,7 @@ const ProjectContainer = ({ tab, setTab }: IProps): JSX.Element => {
     switch (project) {
       case 1:
         return {
+          idx: 1,
           img: [
             "pinterest1.png",
             "pinterest2.png",
@@ -93,6 +95,7 @@ const ProjectContainer = ({ tab, setTab }: IProps): JSX.Element => {
         };
       case 2:
         return {
+          idx: 2,
           img: ["hamster1.png", "hamster2.png", "hamster3.png", "hamster4.png"],
           link: "https://hamster.dsongc.com/",
           pagename: ["햄스터 마켓", "관리자 페이지", "택배기사 페이지"],
@@ -175,6 +178,7 @@ const ProjectContainer = ({ tab, setTab }: IProps): JSX.Element => {
         };
       case 3:
         return {
+          idx: 3,
           img: ["yogiyo1.png", "yogiyo2.png", "yogiyo3.png", "yogiyo4.png"],
           link: "https://yogi.dsongc.com/",
           page1: {
@@ -199,6 +203,7 @@ const ProjectContainer = ({ tab, setTab }: IProps): JSX.Element => {
         };
       case 4:
         return {
+          idx: 4,
           img: ["thunder1.png", "thunder2.png", "thunder3.png", "thunder4.png"],
           link: "https://thunder.dsongc.com/",
           pagename: ["번개장터", "관리자페이지"],
@@ -252,6 +257,7 @@ const ProjectContainer = ({ tab, setTab }: IProps): JSX.Element => {
         };
       case 5:
         return {
+          idx: 5,
           img: ["lol1.png", "lol2.png"],
           link: "https://lol.dsongc.com/",
           page1: {
@@ -275,6 +281,7 @@ const ProjectContainer = ({ tab, setTab }: IProps): JSX.Element => {
         };
       default:
         return {
+          idx: 1,
           img: ["pinterest1.png", "pinterest2.png", "pinterest3.png"],
           link: "https://lee.dsongc.com/",
           page1: {

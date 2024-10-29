@@ -22,13 +22,11 @@ const ContactComp = ({ view, setview, tab, setTab }: IProps) => {
   }, [setview]);
   return (
     <div className="w-[100%] px-20 pb-20">
-      <div className="text-[3rem]" ref={ref}>
-        Contact
-      </div>
+      <div className="text-[3rem]">Contact</div>
       <div className="pt-20 flex justify-between">
         <div>
           <div className="flex items-center gap-5">
-            <div>
+            <div ref={ref}>
               <FaPhone size={30} />
             </div>
             <div className="text-[2rem]">010-2030-4394</div>
