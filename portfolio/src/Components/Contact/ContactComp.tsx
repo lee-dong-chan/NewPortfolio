@@ -1,11 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Observer } from "../../lib/Observer";
-import {
-  FaArrowAltCircleUp,
-  FaArrowUp,
-  FaMailBulk,
-  FaPhone,
-} from "react-icons/fa";
+import { FaArrowUp, FaMailBulk, FaPhone } from "react-icons/fa";
 
 interface IProps {
   view: boolean;
@@ -20,10 +15,11 @@ const ContactComp = ({ view, setview, tab, setTab }: IProps) => {
     if (view) {
       setTab(5);
     }
-  }, [view]);
+  }, [view, setTab]);
+
   useEffect(() => {
     Observer({ state: setview, ref: ref });
-  }, []);
+  }, [setview]);
   return (
     <div className="w-[100%] px-20 pb-20">
       <div className="text-[3rem]" ref={ref}>

@@ -69,6 +69,7 @@ const ProjectContainer = ({ tab, setTab }: IProps): JSX.Element => {
               "Mysql",
               "Express",
               "axios",
+              "Git/GitHub",
             ],
             make: {
               text: [
@@ -198,7 +199,7 @@ const ProjectContainer = ({ tab, setTab }: IProps): JSX.Element => {
         };
       case 4:
         return {
-          img: ["", "", ""],
+          img: ["thunder1.png", "thunder2.png", "thunder3.png", "thunder4.png"],
           link: "https://thunder.dsongc.com/",
           pagename: ["번개장터", "관리자페이지"],
           page1: {
@@ -230,6 +231,7 @@ const ProjectContainer = ({ tab, setTab }: IProps): JSX.Element => {
               text: [
                 "레이아웃 메뉴 구현",
                 "메인페이지 슬라이드 구현",
+                "번개톡 페이지 UI구현",
                 "Express-session을 사용하여 로그인 로그아웃 기능구현 ",
                 "Sequelize의 op.like를 사용하여 해당 키워드의 상품검색기능을 구현하고 검색결과의 최신순,오래된순등 정렬기능 구현",
                 "쿼리스트링을 사용하여 카테고리를 구별하고 카테고리별로 상품리스트를 확인할수 있도록 구현 ",
@@ -250,7 +252,7 @@ const ProjectContainer = ({ tab, setTab }: IProps): JSX.Element => {
         };
       case 5:
         return {
-          img: ["", "", ""],
+          img: ["lol1.png", "lol2.png"],
           link: "https://lol.dsongc.com/",
           page1: {
             info: {
@@ -322,6 +324,7 @@ const ProjectContainer = ({ tab, setTab }: IProps): JSX.Element => {
         };
     }
   }, [project]);
+
   const img = useMemo(() => {
     switch (image) {
       case 0:
@@ -337,7 +340,7 @@ const ProjectContainer = ({ tab, setTab }: IProps): JSX.Element => {
       default:
         return ProjectData.img[0];
     }
-  }, [image, project]);
+  }, [image, ProjectData]);
 
   return (
     <ProjectComp

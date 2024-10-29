@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Observer } from "../../lib/Observer";
 
 interface IProps {
@@ -15,11 +15,11 @@ const HomeComp = ({ tab, setTab, view, setview }: IProps): JSX.Element => {
     if (view) {
       setTab(1);
     }
-  }, [view]);
+  }, [view, setTab]);
 
   useEffect(() => {
     Observer({ state: setview, ref: ref });
-  }, []);
+  }, [setview]);
   return (
     <div className="w-screen h-screen">
       <div className="p-20">
