@@ -8,7 +8,6 @@ import {
   SiNestjs,
   SiNextdotjs,
   SiReactquery,
-  SiRecoil,
   SiSequelize,
   SiTailwindcss,
   SiTypescript,
@@ -36,7 +35,6 @@ const SkillsContainer = ({ tab, setTab }: IProps): JSX.Element => {
       { icon: <SiTailwindcss size={50} />, name: "TailwindCSS" },
       { icon: <FaReact size={50} />, name: "React" },
       { icon: <SiReactquery size={50} />, name: "ReactQuery" },
-      { icon: <SiRecoil size={50} />, name: "Recoil" },
       { icon: <SiNextdotjs size={50} />, name: "Next.js" },
       { icon: <SiExpress size={50} />, name: "Express.js" },
       { icon: <SiSequelize size={50} />, name: "Sequelize" },
@@ -89,49 +87,53 @@ const SkillsContainer = ({ tab, setTab }: IProps): JSX.Element => {
         return [
           "서버 상태관리 라이브러리 ReactQuery를 활용하여 서버에서 받아온 상태의 데이터 패칭 등 의 관리를 할수 있고 useinfinityQuery를 사용하여 무한스크롤을 구현해본 경험이 있습니다.",
         ];
+
       case 8:
-        return [
-          "Recoil을 사용하여 전역상태를 설정하고 관리할수 있습니다.(수정중)",
-        ];
-      case 9:
         return [
           "Next.js를 검색 및 공식페이지를 참고하여 자율적으로 학습하여 프로젝트를 진행한 경험이 있습니다",
           "서버 컴포넌트와 클라이언트 컴포넌트를 적절히 분리하여 사용할 수 있습니다.",
           "app라우팅을 사용하여 프로젝트의 페이지를 라우팅할 수 있으며 다이나믹 라우팅,로딩페이지,에러페이지등을 설정할수 있습니다.",
         ];
-      case 10:
+      case 9:
         return [
           "여러프로젝트에서 Express를 사용하여 백엔드 서버를 구축하엿습니다.",
           "미들웨어를 사용하여 JSON형태의 요청 body를 파싱하거나 인코딩된 데이터를 해석하고 응답의 body로 내보낼 수 있습니다.",
           "세션을 생성하여 로그인을 구현하거나 서버에 데이터를 저장할수 있습니다.",
         ];
+      case 10:
+        return [
+          "Seqelize를 사용하여 JS객체를 관계형 데이터 베이스 테이블에 매핑할 수 있습니다.",
+          "객체지향적으로 접근하여 코드의 재사용 및 유지보수를 원할하게 할수 있습니다.",
+        ];
       case 11:
-        return ["Orm개념을 포함하여 수정필요(수정중)"];
-      case 12:
         return [
           "데이터베이스를 구축하는경우 주로 Mysql을 사용하엿습니다.",
           "DDL쿼리문을 사용하여 데이터 베이스,계정,테이블을 생성하거나 삭제할 수 있습니다.",
           "DML쿼리문을 사용하여 테이블 내의 컬럼의 데이터를 조회하거나 수정할 수 있습니다.",
           "DCL 쿼리문을 사용하여 Mysql계정의 권한을 설정할수 있습니다.",
         ];
-      case 13:
-        return ["Nest.js의 장점을 조사하여 수정(수정중)"];
+      case 12:
+        return [
+          "프로젝트에서 Nest.js를 사용하여 백엔드서버를 구현한 경험이 있습니다.",
+          "데코레이터를 적절히 사용하여 파라미터를 추출하거나 클래스와 메서드의 동작을 제어할수 있습니다.",
+          "모듈형구조를 준수하여 재사용성이나 유지보수가 용이하게 작성할수 있습니다.",
+        ];
 
-      case 14:
+      case 13:
         return [
           "프로젝트 설계단계에서 사용한 경험이 있습니다.",
-          " 프로젝트 문서를 참고하여 프로젝트를 시각적으로 구현한 경험이 있습니다.",
+          "프로젝트 문서를 참고하여 프로젝트를 시각적으로 구현한 경험이 있습니다.",
           "프로젝트를 기능별로 페이지를 나누어 시각화 하여 팀원간의 역활분배를 원활하게 하엿습니다.",
         ];
 
-      case 15:
+      case 14:
         return [
           "내용:AWS의 기능을 사용하여 프로젝트를 배포한 경험이 있습니다.",
           "EC2를 생성하고 Nginx를 통하여 프로젝트를 배포하고 Certbot을 사용하여 https 인증서를 발급할 수 있습니다.",
           "Route53에서 도메인을 등록하고 호스팅영역을 설정하여 도메인을 연결할수 있습니다.",
           "서브도메인을 생성하여 단일 EC2에서 여러개의 프로젝트를 배포한 경험이 있습니다.",
         ];
-      case 16:
+      case 15:
         return [
           "Git/GitHub을 사용하여 프로젝트를 진행한 경험이 있습니다.",
           "기능에 따른 Git brench를 적절히 나누어 프로젝트를 안전하게 개발하고 문제에 빠르게 대처하엿습니다",
@@ -140,7 +142,7 @@ const SkillsContainer = ({ tab, setTab }: IProps): JSX.Element => {
         ];
 
       default:
-        return ["이이콘에 마우스를 올려주세요"];
+        return ["아이콘에 마우스를 올려주세요"];
     }
   }, [skill]);
 
