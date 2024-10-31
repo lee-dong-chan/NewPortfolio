@@ -21,7 +21,7 @@ const ContactComp = ({ view, setview, tab, setTab }: IProps) => {
     Observer({ state: setview, ref: ref });
   }, [setview]);
   return (
-    <div className="w-[100%] px-20 pb-20">
+    <div className="w-[100%] px-20 pb-20 cursor-pointer">
       <div className="text-[3rem]">Contact</div>
       <div className="pt-20 flex justify-between">
         <div>
@@ -29,13 +29,13 @@ const ContactComp = ({ view, setview, tab, setTab }: IProps) => {
             <div ref={ref}>
               <FaPhone size={30} />
             </div>
-            <div className="text-[2rem]">010-2030-4394</div>
+            <div className="text-[1.5rem]">010-2030-4394</div>
           </div>
           <div className="pt-10 flex items-center gap-5">
             <div>
               <FaMailBulk size={30} />
             </div>
-            <div className="text-[2rem]">dsongc3082@naver.com</div>
+            <div className="text-[1.5rem]">dsongc3082@naver.com</div>
           </div>
         </div>
         <div

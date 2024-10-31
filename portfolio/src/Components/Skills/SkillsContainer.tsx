@@ -102,8 +102,9 @@ const SkillsContainer = ({ tab, setTab }: IProps): JSX.Element => {
         ];
       case 10:
         return [
-          "Seqelize를 사용하여 JS객체를 관계형 데이터 베이스 테이블에 매핑할 수 있습니다.",
-          "트랜젝션 처리를 통하여 Sequelize에 오류가 발생하엿을떄 commit과 rollback을 제어할수 있습니다.",
+          "Seqeulize를 사용하여 JS객체를 관계형 데이터 베이스 테이블에 매핑할 수 있습니다.",
+          "Seqeulize에서 제공하는 매서드를 사용하여 CRUD 작업을 수행할수 있습니다.",
+          "복잡한 쿼리문 대신 Sequelize를 사용하여 조건부 조회등의 작업을 수행할 수 있습니다.",
         ];
       case 11:
         return [

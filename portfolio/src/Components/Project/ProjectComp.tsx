@@ -60,8 +60,8 @@ const ProjectComp = ({
     setmaketext(0);
   }, [project, setimage, setProjectinfo, setmaketext, tab]);
   return (
-    <div className="w-[100%] h-[1000px]  px-20 pb-20">
-      <div className="text-[3rem]" ref={ref}>
+    <div className="w-[100%] h-screen  px-20 pb-10 cursor-pointer">
+      <div className="text-[3rem]  " ref={ref}>
         Project
       </div>
       <div>
@@ -80,153 +80,96 @@ const ProjectComp = ({
             </div>
           ))}
         </div>
-        {tab === 4 ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2 }}
-          >
-            <div className="pt-[4rem] flex">
-              {tab === 4 && (
-                <motion.div
-                  initial={{ opacity: 0, translateY: 20 }}
-                  animate={{ opacity: 1, translateY: 0 }}
-                  transition={{ delay: 0.2, duration: 1 }}
-                  key={project}
-                  className="flex flex-col relative items-center w-fit"
-                >
-                  <div className="w-[22rem] h-[17rem] border rounded overflow-hidden">
-                    <img
-                      className="w-[100%] h-[100%] "
-                      src={`/imgs/${img}`}
-                      alt="projectimg"
-                    ></img>
-                  </div>
-                  <div className=" p-5 flex gap-3 ">
-                    {ProjectData.img.map(
-                      (item: string, idx: number) =>
-                        tab === 4 && (
-                          <div
-                            className={`w-[1rem] h-[1rem] rounded ${
-                              image === idx ? "bg-gray-500" : "bg-gray-100"
-                            } `}
-                            key={idx}
-                            onClick={() => {
-                              setimage(idx);
-                            }}
-                          ></div>
-                        )
-                    )}
-                  </div>
-                  <Link
-                    to={ProjectData.link}
-                    target="_blank"
-                    className="p-1 border rounded"
-                  >
-                    프로젝트 페이지
-                  </Link>
-                </motion.div>
-              )}
-              <div className="px-20">
-                <div className={`px-20 w-[37rem] flex gap-10 text-[1.5rem]`}>
-                  <div
-                    className={`${
-                      Projectinfo === 1 &&
-                      "font-bold underline underline-offset-1 "
-                    }`}
-                    onClick={() => {
-                      setProjectinfo(1);
-                    }}
-                  >
-                    프로젝트 정보
-                  </div>
-                  <div
-                    className={`${
-                      Projectinfo === 2 &&
-                      "font-bold underline underline-offset-1 "
-                    }`}
-                    onClick={() => {
-                      setProjectinfo(2);
-                    }}
-                  >
-                    주요업무
-                  </div>
-                  <div
-                    className={`${
-                      Projectinfo === 3 &&
-                      "font-bold underline underline-offset-1 "
-                    }`}
-                    onClick={() => {
-                      setProjectinfo(3);
-                    }}
-                  >
-                    주요 기능 구현
-                  </div>
-                </div>
-                {Projectinfo === 1 && (
-                  <motion.div
-                    className="p-5"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
-                    key={project}
-                  >
-                    <div className="p-1 flex gap-1">
-                      <div>-</div>
-                      <div className="text-[1.1rem]">프로젝트일자:</div>
-                      <div>{ProjectData.page1.info.date}</div>
-                    </div>
-                    <div className="p-1  flex gap-1">
-                      <div>- </div>
-                      <div className="text-[1.1rem]">프로젝트 인원:</div>
-                      <div>{ProjectData.page1.info.menber}</div>
-                    </div>
-                    <div className="p-1  flex gap-1">
-                      <div>-</div>
-                      <div className="text-nowrap text-[1.1rem]">설명:</div>
-                      <div className="text-pretty">
-                        {ProjectData.page1.info.explanation}
-                      </div>
-                    </div>
-                    <div className="w-[30rem] py-5 grid grid-cols-4 gap-1">
-                      {ProjectData.page1.skills.map(
-                        (item: string, idx: number) => (
-                          <div key={idx}>
-                            <motion.div
-                              initial={{ translateY: 20 }}
-                              animate={{ translateY: 0 }}
-                              transition={{ delay: idx / 10, duration: 1 }}
-                              key={project}
-                              className="w-[6.5rem] text-center bg-gray-200 rounded"
-                            >
-                              {item}
-                            </motion.div>
-                          </div>
-                        )
-                      )}
-                    </div>
-                  </motion.div>
-                )}
 
-                {Projectinfo === 2 && (
-                  <motion.div
-                    className="p-5"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
-                  >
-                    {ProjectData.page1.works.map(
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          key={tab}
+        >
+          <div className="px-[2rem] pt-[4rem] flex">
+            <motion.div
+              initial={{ opacity: 0, translateY: 20 }}
+              animate={{ opacity: 1, translateY: 0 }}
+              transition={{ delay: 0.2, duration: 1 }}
+              key={project}
+              className="flex flex-col relative items-center w-fit"
+            >
+              <div className="w-[22rem] h-[17rem] border rounded overflow-hidden">
+                <img
+                  className="w-[100%] h-[100%] "
+                  src={`/imgs/${img}`}
+                  alt="projectimg"
+                ></img>
+              </div>
+              <div className=" p-5 flex gap-3 ">
+                {ProjectData.img.map(
+                  (item: string, idx: number) =>
+                    tab === 4 && (
+                      <div
+                        className={`w-[1rem] h-[1rem] rounded ${
+                          image === idx ? "bg-gray-500" : "bg-gray-100"
+                        } `}
+                        key={idx}
+                        onClick={() => {
+                          setimage(idx);
+                        }}
+                      ></div>
+                    )
+                )}
+              </div>
+              <Link
+                to={ProjectData.link}
+                target="_blank"
+                className="p-1 border rounded"
+              >
+                프로젝트 페이지
+              </Link>
+            </motion.div>
+
+            <div className="px-20">
+              <div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1 }}
+                  key={project}
+                >
+                  <div className="text-[1.5rem] font-bold">프로젝트 정보</div>
+                  <div className="p-1 flex gap-1 text-[0.9rem]">
+                    <div>-</div>
+                    <div className="text-[1.1rem]">프로젝트일자:</div>
+                    <div>{ProjectData.page1.info.date}</div>
+                  </div>
+                  <div className="p-1  flex gap-1">
+                    <div>- </div>
+                    <div className="text-[1.1rem]">프로젝트 인원:</div>
+                    <div>{ProjectData.page1.info.menber}</div>
+                  </div>
+                  <div className="p-1  flex gap-1">
+                    <div>-</div>
+                    <div className="text-nowrap text-[1.1rem]">설명:</div>
+                    <div className="text-pretty">
+                      {ProjectData.page1.info.explanation}
+                    </div>
+                  </div>
+                  <div className="w-[30rem] py-5 grid grid-cols-4 gap-1">
+                    {ProjectData.page1.skills.map(
                       (item: string, idx: number) => (
-                        <div key={idx} className="p-1 flex">
-                          <div>-</div>
-                          <div>{item}</div>
+                        <div key={idx}>
+                          <motion.div
+                            initial={{ translateY: 20 }}
+                            animate={{ translateY: 0 }}
+                            transition={{ delay: idx / 10, duration: 1 }}
+                            key={project}
+                            className="w-[6.5rem] text-center bg-gray-200 rounded"
+                          >
+                            {item}
+                          </motion.div>
                         </div>
                       )
                     )}
-                  </motion.div>
-                )}
-
-                {Projectinfo === 3 && (
+                  </div>
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -234,8 +177,9 @@ const ProjectComp = ({
                     className="pt-[1rem] h-[40rem]"
                     key={maketext}
                   >
+                    <div className="text-[1.5rem] font-bold">주요 기능구현</div>
                     {ProjectData.pagename && (
-                      <div className="py-1 flex gap-3 ">
+                      <div className="px-1 py-1 flex gap-3 ">
                         {ProjectData.pagename.map(
                           (item: string, idx: number) => (
                             <div
@@ -330,249 +274,12 @@ const ProjectComp = ({
                           )
                         )}
                     </div>
-                  </motion.div>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        ) : (
-          <div>
-            <div className="pt-[4rem] flex">
-              <div className="flex  flex-col relative items-center w-fit">
-                <div className="w-[22rem] h-[17rem] border rounded overflow-hidden">
-                  <img
-                    className="w-[100%] h-[100%] "
-                    src={`/imgs/${img}`}
-                    alt="projectimg"
-                  ></img>
-                </div>
-                <div className=" p-5 flex gap-3 ">
-                  {ProjectData.img.map(
-                    (item: string, idx: number) =>
-                      tab === 4 && (
-                        <div
-                          className={`w-[1rem] h-[1rem] rounded ${
-                            image === idx ? "bg-gray-500" : "bg-gray-100"
-                          } `}
-                          key={idx}
-                          onClick={() => {
-                            setimage(idx);
-                          }}
-                        ></div>
-                      )
-                  )}
-                </div>
-                <Link
-                  to={ProjectData.link}
-                  target="_blank"
-                  className="p-1 border rounded"
-                >
-                  프로젝트 페이지
-                </Link>
-              </div>
-
-              <div className="px-20">
-                <div className={`px-20 w-[37rem] flex gap-10 text-[1.5rem]`}>
-                  <div
-                    className={`${
-                      Projectinfo === 1 &&
-                      "font-bold underline underline-offset-1 "
-                    }`}
-                    onClick={() => {
-                      setProjectinfo(1);
-                    }}
-                  >
-                    프로젝트 정보
-                  </div>
-                  <div
-                    className={`${
-                      Projectinfo === 2 &&
-                      "font-bold underline underline-offset-1 "
-                    }`}
-                    onClick={() => {
-                      setProjectinfo(2);
-                    }}
-                  >
-                    주요업무
-                  </div>
-                  <div
-                    className={`${
-                      Projectinfo === 3 &&
-                      "font-bold underline underline-offset-1 "
-                    }`}
-                    onClick={() => {
-                      setProjectinfo(3);
-                    }}
-                  >
-                    주요 기능 구현
-                  </div>
-                </div>
-                {Projectinfo === 1 && (
-                  <motion.div
-                    className="p-5"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
-                  >
-                    <div className="p-1 flex gap-1">
-                      <div>-</div>
-                      <div className="text-[1.1rem]">프로젝트일자:</div>
-                      <div>{ProjectData.page1.info.date}</div>
-                    </div>
-                    <div className="p-1  flex gap-1">
-                      <div>- </div>
-                      <div className="text-[1.1rem]">프로젝트 인원:</div>
-                      <div>{ProjectData.page1.info.menber}</div>
-                    </div>
-                    <div className="p-1  flex gap-1">
-                      <div>-</div>
-                      <div className="text-nowrap text-[1.1rem]">설명:</div>
-                      <div className="text-pretty">
-                        {ProjectData.page1.info.explanation}
-                      </div>
-                    </div>
-                    <div className="w-[30rem] py-5 grid grid-cols-4 gap-1">
-                      {ProjectData.page1.skills.map(
-                        (item: string, idx: number) => (
-                          <div
-                            key={idx}
-                            className="w-[6.5rem] text-center bg-gray-200 rounded"
-                          >
-                            {item}
-                          </div>
-                        )
-                      )}
-                    </div>
-                  </motion.div>
-                )}
-
-                {Projectinfo === 2 && (
-                  <motion.div
-                    className="p-5"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
-                  >
-                    {ProjectData.page1.works.map(
-                      (item: string, idx: number) => (
-                        <div key={idx} className="p-1 flex">
-                          <div>-</div>
-                          <div>{item}</div>
-                        </div>
-                      )
-                    )}
-                  </motion.div>
-                )}
-
-                {Projectinfo === 3 && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
-                    className="pt-[1rem] h-[40rem]"
-                  >
-                    {ProjectData.pagename && (
-                      <div className="py-1 flex gap-3 ">
-                        {ProjectData.pagename.map(
-                          (item: string, idx: number) => (
-                            <div
-                              className={`py-1 px-2 rounded-[0.5rem] ${
-                                maketext === idx ? "bg-gray-400" : "bg-gray-200"
-                              } `}
-                              key={idx}
-                              onClick={() => {
-                                setmaketext(idx);
-                              }}
-                            >
-                              {item}
-                            </div>
-                          )
-                        )}
-                      </div>
-                    )}
-                    <div>
-                      {maketext === 0 &&
-                        ProjectData.page1.make.text.map(
-                          (item: string, idx: number) => (
-                            <div key={idx} className="flex text-[0.9rem] ">
-                              <span className="px-1">-</span>
-                              <div>
-                                <div className="p-1">{item}</div>
-                                {ProjectData.page1.make.sub &&
-                                  ProjectData.page1.make.sub.idx ===
-                                    idx + 1 && (
-                                    <div className="px-10 text-[0.8rem]">
-                                      {ProjectData.page1.make.sub.text.map(
-                                        (item: string, idx: number) => (
-                                          <div key={idx}>
-                                            <span className="px-1">-</span>
-                                            {item}
-                                          </div>
-                                        )
-                                      )}
-                                    </div>
-                                  )}
-                              </div>
-                            </div>
-                          )
-                        )}
-                      {maketext === 1 &&
-                        ProjectData.page2?.make.text.map(
-                          (item: string, idx: number) => (
-                            <div key={idx} className="flex">
-                              <span className="px-1">-</span>
-                              <div>
-                                <div className="p-1">{item}</div>
-                                {ProjectData.page2?.make.sub &&
-                                  ProjectData.page2?.make.sub.idx ===
-                                    idx + 1 && (
-                                    <div className="px-10 text-[0.8rem]">
-                                      {ProjectData.page2?.make.sub.text.map(
-                                        (item: string, idx: number) => (
-                                          <div key={idx}>
-                                            <span className="px-1">-</span>
-                                            {item}
-                                          </div>
-                                        )
-                                      )}
-                                    </div>
-                                  )}
-                              </div>
-                            </div>
-                          )
-                        )}
-                      {maketext === 2 &&
-                        ProjectData.page3?.make.text.map(
-                          (item: string, idx: number) => (
-                            <div key={idx} className="flex ">
-                              <span className="px-1">-</span>
-                              <div>
-                                <div className="p-1">{item}</div>
-                                {ProjectData.page3?.make.sub &&
-                                  ProjectData.page3?.make.sub.idx ===
-                                    idx + 1 && (
-                                    <div className="px-10 text-[0.8rem]">
-                                      {ProjectData.page3?.make.sub.text.map(
-                                        (item: string, idx: number) => (
-                                          <div key={idx}>
-                                            <span className="px-1">-</span>
-                                            {item}
-                                          </div>
-                                        )
-                                      )}
-                                    </div>
-                                  )}
-                              </div>
-                            </div>
-                          )
-                        )}
-                    </div>
-                  </motion.div>
-                )}
+                  </motion.div>{" "}
+                </motion.div>
               </div>
             </div>
           </div>
-        )}
+        </motion.div>
       </div>
     </div>
   );

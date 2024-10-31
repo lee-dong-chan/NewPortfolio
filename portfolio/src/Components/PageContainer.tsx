@@ -24,7 +24,7 @@ const PageContainer = (): JSX.Element => {
     };
   }, []);
   return (
-    <div className="w-screen">
+    <div className="w-screen ">
       <Header Tabs={Tabs} tab={tab} setTab={settab} title={title} />
       <HomeContainer tab={tab} setTab={settab} />
       <ProfileContainer tab={tab} setTab={settab} />
