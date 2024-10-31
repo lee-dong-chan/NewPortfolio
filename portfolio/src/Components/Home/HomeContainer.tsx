@@ -8,6 +8,7 @@ interface IProps {
 
 const HomeContainer = ({ setTab, tab }: IProps): JSX.Element => {
   const [view, setview] = useState<boolean>(false);
+
   return <HomeComp setTab={setTab} tab={tab} view={view} setview={setview} />;
 };
 export default HomeContainer;

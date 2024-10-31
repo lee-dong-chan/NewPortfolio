@@ -7,20 +7,20 @@ interface IProps {
 
 const Header = ({ tab, setTab, title, Tabs }: IProps): JSX.Element => {
   return (
-    <div className="w-[100%] z-[100] sticky top-0 flex justify-between items-center bg-gray-400">
-      <div className="relative w-[5rem] h-[4rem]  cursor-pointer ">
+    <div className="w-[100%] z-[100] sticky top-0 flex justify-between items-center bg-gray-400 ">
+      <div className="relative w-[5rem] h-[4rem] cursor-pointer  ">
         <img
           src="/imgs/LDC4.gif"
           alt="title"
-          className={` w-[100%] ${title && "hidden"}`}
+          className={` w-[100%] ${title && "hidden"} pointer-events-none`}
         ></img>
         <img
           src="/imgs/title.png"
           alt="title"
-          className={`w-[100%] ${!title && "hidden"}`}
+          className={`w-[100%] ${!title && "hidden"} pointer-events-none`}
         ></img>
       </div>
-      <div className="w-[30rem] flex justify-evenly text-white cursor-pointer">
+      <div className="w-[30rem] flex justify-evenly text-white">
         {Tabs.map((item: string, idx: number) => (
           <div
             key={idx}
@@ -34,21 +34,21 @@ const Header = ({ tab, setTab, title, Tabs }: IProps): JSX.Element => {
                 });
               idx === 2 &&
                 window.scrollTo({
-                  top: window.innerHeight + 1300,
+                  top: window.innerHeight * 2,
                   behavior: "smooth",
                 });
               idx === 3 &&
                 window.scrollTo({
-                  top: window.innerHeight * 2 + 1300,
+                  top: window.innerHeight * 3,
                   behavior: "smooth",
                 });
               idx === 4 &&
                 window.scrollTo({
-                  top: window.innerHeight * 5,
+                  top: window.innerHeight * 4,
                   behavior: "smooth",
                 });
             }}
-            className={`${tab === idx + 1 && "text-black"}`}
+            className={`${tab === idx + 1 && "text-black"} cursor-pointer`}
           >
             {item}
           </div>
