@@ -61,7 +61,7 @@ const ProjectComp = ({
   }, [project, setimage, setProjectinfo, setmaketext, tab]);
   return (
     <div className="w-[100%] h-screen  px-20 pb-10 cursor-pointer">
-      <div className="text-[3rem]  " ref={ref}>
+      <div className="text-[3rem] pb-5  " ref={ref}>
         Project
       </div>
       <div>
