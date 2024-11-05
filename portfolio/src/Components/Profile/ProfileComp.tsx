@@ -49,19 +49,16 @@ const ProfileComp = ({
             <div className="w-[20rem] h-[24rem] rounded-[2rem] overflow-hidden">
               <img
                 alt="profile"
-                src="/imgs/myimg.png"
+                src={Profile.img}
                 className="h-[100%] w-[100%]"
               ></img>
             </div>
             <div className="p-2 pt-3 flex gap-10">
               {/* <div className="text-[1.5rem] py-3">Link</div> */}
-              <Link
-                to={"https://github.com/lee-dong-chan/NewPortfolio.git"}
-                target="_blank"
-              >
+              <Link to={Profile.Link[0].link} target="_blank">
                 <FaGithub size={50} />
               </Link>
-              <Link to={"https://dong4394.tistory.com/"} target="_blank">
+              <Link to={Profile.Link[1].link} target="_blank">
                 <FaBloggerB size={50} />
               </Link>
             </div>
