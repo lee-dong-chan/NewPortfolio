@@ -24,6 +24,7 @@ interface IProps {
 }
 
 const ProfileContainer = ({ tab, setTab }: IProps): JSX.Element => {
+  const [animate, setAnimate] = useState<string>("");
   const [view, setview] = useState<boolean>(false);
   const Profile: IProfile = {
     img: "/imgs/myimg.png",
@@ -70,6 +71,8 @@ const ProfileContainer = ({ tab, setTab }: IProps): JSX.Element => {
 
   return (
     <ProfileComp
+      animate={animate}
+      setAnimate={setAnimate}
       tab={tab}
       setTab={setTab}
       view={view}

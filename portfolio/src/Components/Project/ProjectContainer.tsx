@@ -25,6 +25,7 @@ interface IProps {
   setTab: React.Dispatch<React.SetStateAction<number>>;
 }
 const ProjectContainer = ({ tab, setTab }: IProps): JSX.Element => {
+  const [animate, setAnimate] = useState<string>("");
   const [view, setview] = useState<boolean>(false);
   const [project, setproject] = useState<number>(1);
   const [image, setimage] = useState<number>(0);
@@ -351,6 +352,8 @@ const ProjectContainer = ({ tab, setTab }: IProps): JSX.Element => {
 
   return (
     <ProjectComp
+      animate={animate}
+      setAnimate={setAnimate}
       tab={tab}
       setTab={setTab}
       view={view}
