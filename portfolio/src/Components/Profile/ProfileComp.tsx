@@ -11,6 +11,8 @@ interface IProps {
   view: boolean;
   setview: React.Dispatch<React.SetStateAction<boolean>>;
   Profile: IProfile;
+  animate: string;
+  setAnimate: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const ProfileComp = ({
@@ -19,14 +21,17 @@ const ProfileComp = ({
   view,
   setview,
   Profile,
+  animate,
+  setAnimate,
 }: IProps): JSX.Element => {
   const ref = useRef(null);
 
   useEffect(() => {
     if (view) {
       setTab(2);
+      setAnimate("on");
     }
-  }, [view, setTab]);
+  }, [view, setTab, setAnimate]);
 
   useEffect(() => {
     Observer({ state: setview, ref: ref });
@@ -41,8 +46,8 @@ const ProfileComp = ({
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        key={tab}
+        transition={{ duration: 1 }}
+        key={animate}
       >
         <div className="w-[100%] flex gap-[3rem] ">
           <div>
@@ -66,8 +71,8 @@ const ProfileComp = ({
           <motion.div
             initial={{ opacity: 0, translateY: -10 }}
             animate={{ opacity: 1, translateY: 0 }}
-            transition={{ delay: 0.5, duration: 1.5 }}
-            key={tab}
+            transition={{ delay: 0.5, duration: 1 }}
+            key={animate}
           >
             <div className="text-[1.5rem]">Info</div>
             <div className="flex">

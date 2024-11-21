@@ -19,6 +19,8 @@ interface IProps {
   setProjectinfo: React.Dispatch<React.SetStateAction<number>>;
   maketext: number;
   setmaketext: React.Dispatch<React.SetStateAction<number>>;
+  animate: string;
+  setAnimate: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const ProjectComp = ({
@@ -33,18 +35,20 @@ const ProjectComp = ({
   ProjectData,
   ProjectName,
   img,
-  Projectinfo,
   setProjectinfo,
   maketext,
   setmaketext,
+  animate,
+  setAnimate,
 }: IProps) => {
   const ref = useRef(null);
 
   useEffect(() => {
     if (view) {
       setTab(4);
+      setAnimate("on");
     }
-  }, [view, setTab]);
+  }, [view, setTab, setAnimate]);
 
   useEffect(() => {
     setproject(1);
@@ -84,14 +88,14 @@ const ProjectComp = ({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
-          key={tab}
+          transition={{ duration: 1 }}
+          key={animate}
         >
           <div className="px-[2rem] pt-[4rem] flex">
             <motion.div
               initial={{ opacity: 0, translateY: 20 }}
               animate={{ opacity: 1, translateY: 0 }}
-              transition={{ delay: 0.2, duration: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
               key={project}
               className="flex flex-col relative items-center w-fit"
             >
@@ -160,7 +164,7 @@ const ProjectComp = ({
                           <motion.div
                             initial={{ translateY: 20 }}
                             animate={{ translateY: 0 }}
-                            transition={{ delay: idx / 10, duration: 1 }}
+                            transition={{ delay: idx / 40, duration: 0.5 }}
                             key={project}
                             className="w-[6.5rem] text-center bg-gray-200 rounded"
                           >

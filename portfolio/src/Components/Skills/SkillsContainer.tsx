@@ -24,6 +24,7 @@ interface IProps {
 }
 
 const SkillsContainer = ({ tab, setTab }: IProps): JSX.Element => {
+  const [animate, setAnimate] = useState<string>("");
   const [view, setview] = useState<boolean>(false);
   const [skill, setskill] = useState<number>(0);
   const icons: IICon[] = useMemo(() => {
@@ -157,6 +158,8 @@ const SkillsContainer = ({ tab, setTab }: IProps): JSX.Element => {
       skill={skill}
       setskill={setskill}
       content={content}
+      animate={animate}
+      setAnimate={setAnimate}
     />
   );
 };
