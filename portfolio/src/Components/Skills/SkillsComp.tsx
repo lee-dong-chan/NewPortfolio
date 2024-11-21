@@ -11,6 +11,8 @@ interface IProps {
   skill: number;
   setskill: React.Dispatch<React.SetStateAction<number>>;
   content: string[];
+  animate: string;
+  setAnimate: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const SkillsComp = ({
@@ -22,14 +24,17 @@ const SkillsComp = ({
   skill,
   setskill,
   content,
+  animate,
+  setAnimate,
 }: IProps) => {
   const ref = useRef(null);
 
   useEffect(() => {
     if (view) {
       setTab(3);
+      setAnimate("on");
     }
-  }, [view, setTab]);
+  }, [view, setTab, setAnimate]);
 
   useEffect(() => {
     Observer({ state: setview, ref: ref });
@@ -45,8 +50,8 @@ const SkillsComp = ({
             className="relative pe-[10rem]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 2 }}
-            key={tab}
+            transition={{ duration: 1 }}
+            key={animate}
           >
             <div
               className="grid grid-cols-4 "
@@ -59,11 +64,11 @@ const SkillsComp = ({
                   <motion.div
                     initial={{ translateY: -20 }}
                     animate={{ translateY: 0 }}
-                    transition={{ delay: idx / 10, duration: 1 }}
+                    transition={{ delay: idx / 40, duration: 0.5 }}
                     className={`p-10 flex flex-col items-center ${
                       skill === idx + 1 && "animate-pulse"
                     }`}
-                    key={tab}
+                    key={animate}
                     onMouseOver={() => {
                       setskill(idx + 1);
                     }}
