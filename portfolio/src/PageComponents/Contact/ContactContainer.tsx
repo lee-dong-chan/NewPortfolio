@@ -7,8 +7,6 @@ interface IProps {
 const ContactContainer = ({ tab, setTab }: IProps): JSX.Element => {
   const [view, setview] = useState<boolean>(false);
 
-  return (
-    <ContactComp view={view} setview={setview} tab={tab} setTab={setTab} />
-  );
+  return <ContactComp />;
 };
 export default ContactContainer;
