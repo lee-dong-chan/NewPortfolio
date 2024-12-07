@@ -1,26 +1,16 @@
 interface IProps {
   tab: number;
   setTab: React.Dispatch<React.SetStateAction<number>>;
-  title: boolean;
   Tabs: string[];
 }
 
-const Header = ({ tab, setTab, title, Tabs }: IProps): JSX.Element => {
+const Header = ({ setTab, Tabs }: IProps): JSX.Element => {
   return (
-    <div className="w-[100%] z-[100] sticky top-0 flex justify-between items-center bg-gray-400 ">
-      <div className="relative w-[5rem] h-[4rem] cursor-pointer  ">
-        <img
-          src="/imgs/LDC4.gif"
-          alt="title"
-          className={` w-[100%] ${title && "hidden"} pointer-events-none`}
-        ></img>
-        <img
-          src="/imgs/title.png"
-          alt="title"
-          className={`w-[100%] ${!title && "hidden"} pointer-events-none`}
-        ></img>
+    <div className="mx-auto w-[1440px]  py-[1rem] relative z-[100]  h-[5rem] top-0 flex justify-between items-center">
+      <div className="relative cursor-pointer text-[2.5rem] text-green-400 font-bold">
+        Lee Dong Chan
       </div>
-      <div className="w-[30rem] flex justify-evenly text-white">
+      <div className="w-[30rem] flex justify-evenly text-white font-bold">
         {Tabs.map((item: string, idx: number) => (
           <div
             key={idx}
@@ -48,7 +38,7 @@ const Header = ({ tab, setTab, title, Tabs }: IProps): JSX.Element => {
                   behavior: "smooth",
                 });
             }}
-            className={`${tab === idx + 1 && "text-black"} cursor-pointer`}
+            className={`cursor-pointer`}
           >
             {item}
           </div>
