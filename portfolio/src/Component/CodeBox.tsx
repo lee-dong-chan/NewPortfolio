@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { PropsWithChildren, ReactNode } from "react";
-
+import { motion } from "framer-motion";
 interface IProps {
   title?: string;
   className?: string;
@@ -9,7 +9,7 @@ interface IProps {
 
 const CodeBox = ({ className, children, title }: PropsWithChildren<IProps>) => {
   return (
-    <div
+    <motion.div
       className={`${clsx(
         className &&
           `${className} p-[1px] rounded-[1rem] bg-gradient-to-r from-indigo-500 from-40% via-pink-500 via-60% to-indigo-500 `,
@@ -30,11 +30,11 @@ const CodeBox = ({ className, children, title }: PropsWithChildren<IProps>) => {
             </div>
           )}
         </div>
-        <div className="mt-[1px] p-[2rem] w-[100%] h-[100%] bg-indigo-950">
+        <div className="mt-[1px] w-[100%] h-[100%] bg-indigo-950">
           {children}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default CodeBox;

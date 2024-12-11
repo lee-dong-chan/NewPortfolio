@@ -1,12 +1,10 @@
-import { useState } from "react";
 import ContactComp from "./ContactComp";
-interface IProps {
-  tab: number;
-  setTab: React.Dispatch<React.SetStateAction<number>>;
-}
-const ContactContainer = ({ tab, setTab }: IProps): JSX.Element => {
-  const [view, setview] = useState<boolean>(false);
 
-  return <ContactComp />;
+interface IProps {
+  ContactRef: React.RefObject<HTMLDivElement>;
+}
+
+const ContactContainer = ({ ContactRef }: IProps): JSX.Element => {
+  return <ContactComp ContactRef={ContactRef} />;
 };
 export default ContactContainer;

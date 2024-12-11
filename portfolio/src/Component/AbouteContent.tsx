@@ -6,7 +6,7 @@ interface IProps {
 
 const AbouteContent = ({ about }: IProps) => {
   return (
-    <div className="text-white font-bold text-[1rem]">
+    <div className="p-[2rem] text-white font-bold text-[1rem] ">
       <p className="py-1 flex items-center">
         <span className="text-pink-500">const</span>
         <span className="px-[4px]">Developer</span>
@@ -35,12 +35,14 @@ const AbouteContent = ({ about }: IProps) => {
         <span className="px-[4px]">skills</span>
         <span className="px-[4px]">:</span>
         <span className="px-[4px]">{"["}</span>
-        {about.skills.map((item: string, idx: number) => (
-          <span key={idx}>
-            <span className="px-[4px] text-yellow-500">{item}</span>
-            {item !== "Git/GitHub" && <span>,</span>}
-          </span>
-        ))}
+        <span className="flex flex-wrap gap-1">
+          {about.skills.map((item: string, idx: number) => (
+            <span key={idx}>
+              <span className="px-[4px] text-yellow-500">'{item}'</span>
+              {item !== "Git/GitHub" && <span>,</span>}
+            </span>
+          ))}
+        </span>
         <span className="px-[4px]">{"]"}</span>
         <span>,</span>
       </p>
