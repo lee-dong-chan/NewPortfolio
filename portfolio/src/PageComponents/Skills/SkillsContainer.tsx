@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import SkillsComp from "./SkillsComp";
 
 export interface IICon {
@@ -6,10 +6,10 @@ export interface IICon {
   name: string;
 }
 
-const SkillsContainer = (): JSX.Element => {
-  const [animate, setAnimate] = useState<string>("");
-  const [view, setview] = useState<boolean>(false);
-  const [skill, setskill] = useState<number>(0);
+interface IProps {
+  SkillsRef: React.RefObject<HTMLDivElement>;
+}
+const SkillsContainer = ({ SkillsRef }: IProps): JSX.Element => {
   const icons: IICon[] = useMemo(() => {
     return [
       { icon: "/imgs/javscript.svg", name: "JavaScript" },
@@ -74,6 +74,6 @@ const SkillsContainer = (): JSX.Element => {
     ];
   }, []);
 
-  return <SkillsComp icons={icons} />;
+  return <SkillsComp icons={icons} SkillsRef={SkillsRef} />;
 };
 export default SkillsContainer;

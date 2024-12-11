@@ -2,7 +2,7 @@ import { Dispatch, MutableRefObject, SetStateAction } from "react";
 
 interface IObserver {
   state: Dispatch<SetStateAction<boolean>>;
-  persent: Dispatch<SetStateAction<number>>;
+  persent?: Dispatch<SetStateAction<number>>;
   ref: MutableRefObject<null>;
 }
 
@@ -11,7 +11,9 @@ export const Observer = ({ state, ref, persent }: IObserver) => {
     (entries) => {
       if (entries[0].isIntersecting) {
         state(true);
-        persent(0);
+        if (persent) {
+          persent(0);
+        }
       } else {
         state(false);
       }

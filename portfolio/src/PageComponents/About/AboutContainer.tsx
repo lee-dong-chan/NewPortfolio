@@ -11,7 +11,11 @@ export interface IAboute {
   skills: string[];
 }
 
-const AboutContainer = (): JSX.Element => {
+interface IProps {
+  AboutRef: React.RefObject<HTMLDivElement>;
+}
+
+const AboutContainer = ({ AboutRef }: IProps): JSX.Element => {
   const about: IAboute = {
     img: "/imgs/myimg.png",
     name: "이동찬",
@@ -41,6 +45,6 @@ const AboutContainer = (): JSX.Element => {
       "Git/GitHub",
     ],
   };
-  return <AbouteComp about={about} />;
+  return <AbouteComp about={about} AboutRef={AboutRef} />;
 };
 export default AboutContainer;
