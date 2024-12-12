@@ -11,7 +11,7 @@ const Header = ({ setTab, Tabs, Refs }: IProps): JSX.Element => {
   return (
     <div
       className={clsx(
-        "mx-auto max-w-[1440px]  py-[1rem] relative z-[100]  h-[5rem] top-0 flex justify-between items-center",
+        "mx-auto px-[2rem] max-w-[1440px]  py-[1rem] relative z-[100]  h-[5rem] top-0 flex justify-between items-center ovefflow-hidden",
         "laptop:max-w-[1200px]",
         "tablet:w-screen tablet:px-[1rem]",
         "mobile:w-[100%]  mobile:px-[1rem]"

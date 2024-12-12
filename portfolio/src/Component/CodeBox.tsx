@@ -26,7 +26,14 @@ const CodeBox = ({ className, children, title }: PropsWithChildren<IProps>) => {
           </div>
           {title && (
             <div className="w-[100%] flex justify-center">
-              <p className="text-green-300 font-bold text-[1.2rem]">{title}</p>
+              <p
+                className={clsx(
+                  "text-green-300 font-bold text-[1.2rem]",
+                  "mobile:text-[1rem]"
+                )}
+              >
+                {title}
+              </p>
             </div>
           )}
         </div>

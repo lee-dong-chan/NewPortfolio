@@ -21,7 +21,7 @@ const SkillsComp = ({ icons, SkillsRef }: IProps) => {
   return (
     <div
       className={clsx(
-        "mx-auto relative pt-[4rem] max-w-[1440px] cursor-pointer border-t border-indigo-950 z-[30]",
+        "mx-auto relative pt-[4rem] max-w-[1440px] cursor-pointer border-t border-indigo-950 z-[30] overflow-hidden",
         "laptop:max-w-[1200px]"
       )}
     >
