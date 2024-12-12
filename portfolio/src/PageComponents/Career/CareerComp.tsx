@@ -11,7 +11,7 @@ const CareerComp = ({ Profile, CareerRef }: IProps): JSX.Element => {
   return (
     <div
       className={clsx(
-        "mx-auto relative max-w-[1440px]  pt-[4rem] pb-[4rem] cursor-pointer border-t border-indigo-950 z-[30] ",
+        "mx-auto relative max-w-[1440px]  pt-[4rem] pb-[4rem] cursor-pointer border-t border-indigo-950 z-[30] overflow-hidden ",
         "laptop:max-w-[1200px]"
       )}
     >

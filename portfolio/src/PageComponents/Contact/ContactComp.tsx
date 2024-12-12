@@ -11,7 +11,7 @@ const ContactComp = ({ ContactRef }: IProps): JSX.Element => {
   return (
     <div
       className={clsx(
-        "relative max-w-[1440px] mx-auto cursor-pointer flex justify-center z-[30] ",
+        "relative max-w-[1440px] mx-auto cursor-pointer flex justify-center z-[30] overflow-hidden ",
         "laptop: max-w-[1200px]"
       )}
     >
