@@ -43,23 +43,23 @@ const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
     if (imgNumber !== 0) {
       setImgNumber(0);
     }
-  }, [tab]);
+  }, [tab, imgNumber]);
 
   return (
     <div
       className={clsx(
-        "relative max-w-[1440px] mx-auto cursor-pointer overflow-visible z-[30]",
+        "relative max-w-[1440px] mx-auto cursor-pointer overflow-visible z-[30] ",
         "laptop:max-w-[1200px]"
       )}
     >
-      <div className="px-[2rem] flex items-center " ref={ProjectRef}>
+      <div className="px-[2rem]  flex items-center  " ref={ProjectRef}>
         <div
           className={clsx(
-            "border absolute z-10 w-[100%] h-[1px] border-purple-950",
+            "relative border  z-10 max-w-[100%] h-[1px] border-purple-950",
             "mobile:hidden"
           )}
         ></div>
-        <h1 className="relative z-20  px-5 py-2  w-fit rounded-[0.5rem] font-bold text-[1.5rem] text-white bg-purple-950">
+        <h1 className="absolute z-20  px-5 py-2  w-fit rounded-[0.5rem] font-bold text-[1.5rem] text-white bg-purple-950">
           Project
         </h1>
       </div>
@@ -74,11 +74,11 @@ const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
             <div
               key={idx}
               className={clsx(
-                "px-[2rem] w-[100%] sticky z-[20] top-10 flex  gap-[4rem]  justify-center",
+                "px-[2rem] w-[100%] sticky z-[20] top-10 flex  gap-[4rem]  justify-center ",
                 tab !== 0 &&
-                  "desktop:px-[2rem] desktop:justify-between desktop:transition  desktop:translate-x-20 desktop:duration-500 ",
+                  "desktop:px-[2rem] desktop:justify-between desktop:transition   desktop:duration-500 ",
                 tab !== 0 &&
-                  "laptop:px-[2rem] laptop:justify-between laptop:transition laptop:translate-x-20 laptop:duration-500",
+                  "laptop:px-[2rem] laptop:justify-between laptop:transition  laptop:duration-500",
 
                 tab === 0 &&
                   "desktop:px-[2rem]  desktop:transition  desktop:duration-500",
@@ -97,7 +97,7 @@ const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
                   transition={{
                     translateX: {
                       type: "spring",
-                      damping: 3,
+                      damping: 5,
                       duration: 0.2,
                       delay: 0.5,
                     },
@@ -175,7 +175,7 @@ const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
                 className={clsx(
                   `max-w-[50rem] h-[50rem]  `,
                   "laptop:max-w-[40rem]",
-                  "mobile:top-0 mobile:h-[60rem] mobile:w-[100%]",
+                  "mobile:top-0 mobile:h-[45rem] mobile:w-[100%]",
                   "tablet:w-[100%]"
                 )}
                 key={idx}

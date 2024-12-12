@@ -87,16 +87,24 @@ const AbouteComp = ({ about, AboutRef }: IProps): JSX.Element => {
       >
         <div className={"px-[2rem]"}>
           <h1 className="text-[2rem] font-bold text-green-300">Who I am?</h1>
-          <div className=" py-[2rem] text-[1.2rem] text-white font-bold">
-            <p>저는 신입 프론트엔드 개발자 이동찬 입니다.</p>
-
+          <div className="py-[2rem] text-[1.1rem] max-w-[40rem]  text-white font-bold">
             <p>
-              새로운 프론트 엔드 기술을 배워나가기 위해 노력하며 성장하는것에
-              성취감을 느낍니다.
-            </p>
-            <p>
-              한자리에 머물러 있지않고 꾸준하게 나아가는 프론트엔드 개발자가
-              되고 싶습니다.
+              <span className="pe-1">
+                신입 프론트엔드 개발자 이동찬 입니다.
+              </span>
+              <span className="pe-1">
+                저는 새로운 기술을 배워나가기 위해 노력하는 자세와 문제
+                해결의지를 가지고 있으며 스스로 학습하는것을 중요하게
+                생각합니다.
+              </span>
+              <span className="pe-1">
+                자바스크립트를 기반으로 두고있으며, 타입스크립트 및 리액트를
+                사용하여 프로젝트를 만드는것을 선호합니다.
+              </span>
+              <span className="pe-1">
+                한자리에 머물러 있지않고 꾸준하게 나아가는 프론트엔드 개발자가
+                되고 싶습니다.
+              </span>
             </p>
           </div>
         </div>

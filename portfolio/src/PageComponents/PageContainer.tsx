@@ -57,7 +57,7 @@ const PageContainer = (): JSX.Element => {
       <motion.img
         animate={{ opacity: [0, 0.1, 0.2, 0.1, 0] }}
         transition={{ opacity: { duration: 10, repeat: Infinity } }}
-        className="fixed w-[100%] h-[100%] z-[5] opacity-[0.2]"
+        className="fixed w-screen h-[100%] z-[5] opacity-[0.2]"
         src="/imgs/back2.png"
         alt="back"
       ></motion.img>
