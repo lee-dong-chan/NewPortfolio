@@ -43,7 +43,7 @@ const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
     if (imgNumber !== 0) {
       setImgNumber(0);
     }
-  }, [tab, imgNumber]);
+  }, [tab]);
 
   return (
     <div
