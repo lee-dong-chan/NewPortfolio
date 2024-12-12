@@ -79,15 +79,15 @@ const AbouteComp = ({ about, AboutRef }: IProps): JSX.Element => {
       <div
         className={clsx(
           "pt-[2.5rem] flex",
-          "laptop: justify-between ",
-          "desktop: justify-between ",
+          // "laptop: justify-between ",
+          // "desktop: justify-between ",
           "tablet:flex-col-reverse gap-[1rem]",
           "mobile:flex-col-reverse gap-[1rem]"
         )}
       >
         <div className={"px-[2rem]"}>
           <h1 className="text-[2rem] font-bold text-green-300">Who I am?</h1>
-          <div className="py-[2rem] text-[1.1rem] max-w-[40rem]  text-white font-bold">
+          <div className="py-[2rem] text-[1.1rem] max-w-[45rem]  text-white font-bold">
             <p>
               <span className="pe-1">
                 신입 프론트엔드 개발자 이동찬 입니다.
@@ -111,7 +111,7 @@ const AbouteComp = ({ about, AboutRef }: IProps): JSX.Element => {
         <div className={"py-[1rem] flex"}>
           <img
             className={clsx(
-              "w-[16rem] h-[18rem] rounded-[1rem] opacity-[0.7]",
+              "w-[16rem] h-[18rem] rounded-[1rem] opacity-[0.9] z-40 ",
               "hover:scale-[1.2] hover:transition hover:delay-150 hover:duration-300 hover:ease-in-out hover:opacity-[1]",
               "tablet:mx-auto",
               "mobile:mx-auto"
@@ -122,12 +122,12 @@ const AbouteComp = ({ about, AboutRef }: IProps): JSX.Element => {
 
           <div
             className={clsx(
-              "flex items-center rotate-90 block",
+              "absolute flex items-center rotate-90 block  right-0 bottom-[20%] ",
               "tablet:hidden",
               "mobile:hidden"
             )}
           >
-            <p className="px-5 py-2 rounded-[0.5rem] text-[1.2rem] font-bold text-white bg-purple-950">
+            <p className=" px-5 py-2 rounded-[0.5rem] text-[1.2rem] font-bold text-white bg-purple-950">
               ABOUT ME
             </p>
             <div className="h-[1px] w-[4rem] border border-purple-950"></div>
