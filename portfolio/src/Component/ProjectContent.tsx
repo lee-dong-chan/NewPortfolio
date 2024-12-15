@@ -85,6 +85,7 @@ const ProjectContent = ({ projectData }: IProps): JSX.Element => {
             ))}
           </ul>
         </div>
+
         <div className="pt-1">
           <span className="text-white font-bold">projectOverview</span>
           <span className="text-white font-bold">:</span>

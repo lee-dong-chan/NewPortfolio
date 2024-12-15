@@ -40,9 +40,7 @@ const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
   }, [position, Ref.ref1, Ref.ref2, Ref.ref3, Ref.ref4, Ref.ref5]);
 
   useEffect(() => {
-    if (imgNumber !== 0) {
-      setImgNumber(0);
-    }
+    setImgNumber(0);
   }, [tab]);
 
   return (
@@ -63,10 +61,89 @@ const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
           Project
         </h1>
       </div>
-      <div className="w-[100%] flex">
+      <div className="w-[100%] flex justify-center ">
+        <div className="py-[4rem]">
+          {tab !== 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{
+                translateX: [-20, 0],
+                opacity: [0, 1],
+                width: ["0rem", "30rem"],
+              }}
+              transition={{
+                translateX: {
+                  type: "spring",
+                  damping: 5,
+                  duration: 0.2,
+                  delay: 0.5,
+                },
+                opacity: { duration: 0.5 },
+                width: { duration: 0.5 },
+              }}
+              className={clsx(
+                "sticky top-20 bottom-10  rounded-[1rem]  h-[30rem] ",
+                tab === 0 && "hidden",
+                "tablet:hidden",
+                "mobile:hidden"
+              )}
+            >
+              <div className="relative  w-[100%] h-[100%] rounded-[1rem] z-[15] overflow-hidden">
+                <img
+                  className={`w-[100%] h-[100%]`}
+                  src={`/imgs/${project[tab - 1].img[imgNumber]}`}
+                  alt="project"
+                ></img>
+              </div>
+              <motion.div
+                key={Key}
+                animate={{
+                  opacity: [1, 0.5, 0],
+                  translateX: 20,
+                  translateY: -20,
+                }}
+                transition={{ opacity: { duration: 0.5 } }}
+                className="absolute left-[5px] top-[5px]  w-[100%] h-[100%] rounded-[1rem] bg-white opacity-[0.5] z-[10]"
+              ></motion.div>
+              <div className="absolute left-[10px] top-[10px]  w-[100%] h-[100%] rounded-[1rem] bg-white opacity-[0.2] z-[5]"></div>
+              {tab !== 0 && (
+                <motion.ul className="absolute py-[2rem] w-[100%] flex justify-center gap-2 ">
+                  {project[tab - 1].img.map((item, idx: number) => (
+                    <div key={idx}>
+                      <motion.li
+                        key={tab}
+                        animate={{ translateY: [10, 0], opacity: [0, 1] }}
+                        transition={{
+                          translateY: { delay: `0.${idx + 1}` },
+                          opacity: { delay: `0.${idx + 1}` },
+                        }}
+                        className={
+                          "relative p-[1px] w-[15px] h-[15px] border-gray-500 rounded bg-purple-700  "
+                        }
+                        onClick={() => {
+                          setImgNumber(idx);
+                        }}
+                      >
+                        <div
+                          className={clsx(
+                            "w-[100%] h-[100%]  rounded ",
+                            imgNumber === idx
+                              ? "bg-purple-400"
+                              : "bg-indigo-950"
+                          )}
+                        ></div>
+                      </motion.li>
+                    </div>
+                  ))}
+                </motion.ul>
+              )}
+            </motion.div>
+          )}
+        </div>
+
         <div
           className={clsx(
-            "relative py-[4rem] w-[100%] flex flex-col  gap-[40rem] ",
+            "relative py-[4rem] px-[2rem] w-fit flex flex-col  gap-[40rem] ",
             "mobile:px-2 mobile:py-[2rem]"
           )}
         >
@@ -74,103 +151,9 @@ const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
             <div
               key={idx}
               className={clsx(
-                "px-[2rem] w-[100%] sticky z-[20] top-10 flex  gap-[4rem]  justify-center ",
-                tab !== 0 &&
-                  "desktop:px-[2rem] desktop:justify-between desktop:transition   desktop:duration-500 ",
-                tab !== 0 &&
-                  "laptop:px-[2rem] laptop:justify-between laptop:transition  laptop:duration-500",
-
-                tab === 0 &&
-                  "desktop:px-[2rem]  desktop:transition  desktop:duration-500",
-                tab === 0 &&
-                  "laptop:px-[2rem]  laptop:transition laptop:duration-500 "
+                "px-[2rem] w-[100%] sticky z-[20] top-10 flex  gap-[4rem]  "
               )}
             >
-              {tab !== 0 && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    translateX: [-20, 0],
-                    opacity: [0, 1],
-                    width: ["0rem", "30rem"],
-                  }}
-                  transition={{
-                    translateX: {
-                      type: "spring",
-                      damping: 5,
-                      duration: 0.2,
-                      delay: 0.5,
-                    },
-                    opacity: { duration: 0.5 },
-                    width: { delay: 0.5, duration: 0.5 },
-                  }}
-                  className={clsx(
-                    "relative mt-[4rem]  rounded-[1rem]  h-[30rem] ",
-                    tab !== 0 && tab !== idx + 1 && "hidden",
-                    "tablet:hidden",
-                    "mobile:hidden"
-                  )}
-                >
-                  <div className="relative  w-[100%] h-[100%] rounded-[1rem] z-[15] overflow-hidden">
-                    <img
-                      className={`w-[100%] h-[100%]`}
-                      src={`/imgs/${project[idx].img[imgNumber]}`}
-                      alt="project"
-                    ></img>
-                  </div>
-                  <motion.div
-                    key={Key}
-                    animate={{
-                      opacity: [1, 0.5, 0],
-                      translateX: 20,
-                      translateY: -20,
-                    }}
-                    transition={{ opacity: { duration: 0.5 } }}
-                    className="absolute left-[5px] top-[5px]  w-[100%] h-[100%] rounded-[1rem] bg-white opacity-[0.5] z-[10]"
-                  ></motion.div>
-                  <div className="absolute left-[10px] top-[10px]  w-[100%] h-[100%] rounded-[1rem] bg-white opacity-[0.2] z-[5]"></div>
-                  {tab !== 0 && (
-                    <motion.ul className="absolute py-[2rem] w-[100%] flex justify-center gap-2 ">
-                      {project[idx].img.map((item, idx: number) => (
-                        <motion.li
-                          key={idx}
-                          animate={{ translateY: [10, 0], opacity: [0, 1] }}
-                          transition={{
-                            translateY: { delay: `1.${idx}` },
-                            opacity: { delay: `1.${idx}` },
-                          }}
-                          className={
-                            "relative p-[1px] w-[15px] h-[15px] border-gray-500 rounded bg-purple-700  "
-                          }
-                          onClick={() => {
-                            setImgNumber(idx);
-                          }}
-                        >
-                          <div
-                            className={clsx(
-                              "w-[100%] h-[100%]  rounded ",
-                              imgNumber === idx
-                                ? "bg-purple-400"
-                                : "bg-indigo-950"
-                            )}
-                          ></div>
-                        </motion.li>
-                      ))}
-                    </motion.ul>
-                  )}
-                </motion.div>
-              )}
-
-              {tab !== 0 && tab !== idx + 1 && (
-                <div
-                  className={clsx(
-                    "relative max-w-[28rem] max-h-[28rem] z-[-20]",
-                    "tablet:hidden tablet:absolute ",
-                    "mobile:hidden mobile:absolute "
-                  )}
-                ></div>
-              )}
-
               <CodeBox
                 className={clsx(
                   `max-w-[50rem] h-[50rem]  `,

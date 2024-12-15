@@ -16,19 +16,19 @@ const AbouteContent = ({ about }: IProps) => {
       <p className="px-[2rem] pt-1 flex items-center">
         <span className="px-[4px]">name</span>
         <span className="px-[4px]">:</span>
-        <span className="px-[4px] text-yellow-500">'이동찬'</span>
+        <span className="px-[4px] text-orange-300">"{about.name}"</span>
         <span>,</span>
       </p>
       <p className="px-[2rem] pt-1 flex items-center">
         <span className="px-[4px]">date</span>
         <span className="px-[4px]">:</span>
-        <span className="px-[4px] text-yellow-500">'1996-06-28'</span>
+        <span className="px-[4px] text-orange-500">"{about.date}"</span>
         <span>,</span>
       </p>
       <p className="px-[2rem] pt-1 flex items-center">
         <span className="px-[4px]">Adress</span>
         <span className="px-[4px]">:</span>
-        <span className="px-[4px] text-yellow-500">'남양주시 와부읍 거주'</span>
+        <span className="px-[4px] text-orange-500">"{about.adress}"</span>
         <span>,</span>
       </p>
       <p className="px-[2rem] pt-1 flex items-center flex-wrap ">
@@ -49,13 +49,13 @@ const AbouteContent = ({ about }: IProps) => {
       <p className="px-[2rem] pt-1 flex items-center">
         <span className="px-[4px]">sincerity</span>
         <span className="px-[4px]">:</span>
-        <span className="px-[4px] text-yellow-500">true</span>
+        <span className="px-[4px] text-indigo-400">true</span>
         <span>,</span>
       </p>
       <p className="px-[2rem] pt-1 flex items-center">
         <span className="px-[4px]">quickLearner</span>
         <span className="px-[4px]">:</span>
-        <span className="px-[4px] text-yellow-500">true</span>
+        <span className="px-[4px] text-indigo-400">true</span>
         <span>,</span>
       </p>
       <p>{"};"}</p>

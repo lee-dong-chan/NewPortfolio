@@ -21,7 +21,7 @@ const AboutContainer = ({ AboutRef }: IProps): JSX.Element => {
     name: "이동찬",
     date: "1996-06-28(만28)",
     Tel: "010-2030-4394",
-    adress: "남양주시 거주",
+    adress: "남양주시 와부읍 거주",
     mail: "dsongc3082@naver.com",
     Link: [
       { link: "https://github.com/lee-dong-chan/NewPortfolio.git" },
