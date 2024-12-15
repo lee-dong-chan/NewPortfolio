@@ -11,7 +11,7 @@ const CareerComp = ({ Profile, CareerRef }: IProps): JSX.Element => {
   return (
     <div
       className={clsx(
-        "mx-auto relative max-w-[1440px]  pt-[4rem] pb-[4rem] cursor-pointer border-t border-indigo-950 z-[30] overflow-hidden ",
+        "mx-auto relative max-w-[1440px] px-[2rem]  pt-[4rem] pb-[4rem] cursor-pointer border-t border-indigo-950 z-[30] overflow-hidden ",
         "laptop:max-w-[1200px]"
       )}
     >
@@ -37,7 +37,7 @@ const CareerComp = ({ Profile, CareerRef }: IProps): JSX.Element => {
         )}
       >
         <div className="py-[6rem] mx-auto  w-fit flex justify-center items-center ">
-          <div className="relative top-[-3rem] left-[1rem]">
+          <div className="relative top-[-2rem] left-[1rem]">
             <motion.div
               className="relative w-[3rem] h-[3rem]  z-10"
               animate={{ translateY: [0, 2.5, 5, 2.5, 0, -2.5, -5, -2.5, 0] }}
@@ -54,7 +54,7 @@ const CareerComp = ({ Profile, CareerRef }: IProps): JSX.Element => {
                 borderRadius: { duration: 5, repeat: Infinity },
                 opacity: { duration: 2, repeat: Infinity },
               }}
-              className="absolute top-10 rotate-[33deg] skew-x-[-27deg]  left-[-1.2rem]  w-[3rem] h-[3rem] rounded-[1rem] border-[3px] border-orange-400 "
+              className="absolute top-8 rotate-[33deg] skew-x-[-27deg]  left-[-1.2rem]  w-[3rem] h-[3rem] rounded-[1rem] border-[3px] border-orange-400 "
             ></motion.div>
           </div>
           <div className="relative">
