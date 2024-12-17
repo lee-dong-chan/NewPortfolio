@@ -78,7 +78,7 @@ const ProjectContainer = ({ ProjectRef, position }: IProps): JSX.Element => {
       page1: {
         info: {
           date: "2024.07.05 ~ 2024.08.05(32일)",
-          menber: "4인",
+          menber: "4인(팀원)",
           explanation:
             "미션가이드에 따라 구매자와 판매자가 택배사를 통하여 거래할수있는 중고거래사이트를 React와 tailwindCss를 사용하여 구현한 프로젝트.",
         },
@@ -144,7 +144,7 @@ const ProjectContainer = ({ ProjectRef, position }: IProps): JSX.Element => {
       page1: {
         info: {
           date: "2024.05.19 ~ 2024.06.4(17일)",
-          menber: "2인",
+          menber: "2인(팀장)",
           explanation:
             "팀원과의 협업을 통한 프로젝트 경험과 여러 라이브러리를 사용한 서버구축 및 DB구축 경험을 위한 프로젝트입니다.",
         },

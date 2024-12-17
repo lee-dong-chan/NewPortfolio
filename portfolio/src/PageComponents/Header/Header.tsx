@@ -36,11 +36,11 @@ const Header = ({ setTab, Tabs, Refs }: IProps): JSX.Element => {
 
               idx === 1 &&
                 Refs &&
-                Refs.Career &&
-                Refs.Career.current &&
+                Refs.Overview &&
+                Refs.Overview.current &&
                 window.scrollTo({
                   top:
-                    Refs.Career.current?.getBoundingClientRect().top -
+                    Refs.Overview.current?.getBoundingClientRect().top -
                     20 +
                     window.scrollY,
                   behavior: "smooth",
