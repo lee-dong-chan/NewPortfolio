@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { IICon } from "./SkillsContainer";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Observer } from "../../lib/Observer";
+import { SlideObserver } from "../../lib/SlideObserver";
 
 interface IProps {
   icons: IICon[];
@@ -16,7 +16,7 @@ const SkillsComp = ({ icons, SkillsRef }: IProps) => {
   const ref = useRef(null);
 
   useEffect(() => {
-    Observer({ state: setSlideEnd, ref: ref, persent: setPersent });
+    SlideObserver({ state: setSlideEnd, ref: ref, persent: setPersent });
   }, [slide]);
   return (
     <div

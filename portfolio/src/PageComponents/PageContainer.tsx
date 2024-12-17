@@ -6,13 +6,13 @@ import ProjectContainer from "./Project/ProjectContainer";
 
 import AboutContainer from "./About/AboutContainer";
 import ContactContainer from "./Contact/ContactContainer";
-import CareerContainer from "./Career/CareerContainer";
 import { FaArrowUp } from "react-icons/fa";
 import clsx from "clsx";
 import { motion } from "framer-motion";
+import OverviewContainer from "./Summation/OverviewContainer";
 export interface IRefs {
   Aboute: React.RefObject<HTMLDivElement>;
-  Career: React.RefObject<HTMLDivElement>;
+  Overview: React.RefObject<HTMLDivElement>;
   Skills: React.RefObject<HTMLDivElement>;
   Project: React.RefObject<HTMLDivElement>;
   Contact: React.RefObject<HTMLDivElement>;
@@ -23,7 +23,7 @@ const PageContainer = (): JSX.Element => {
   const [position, setposition] = useState<number>(0);
   const Refs: IRefs = {
     Aboute: useRef<HTMLDivElement>(null),
-    Career: useRef<HTMLDivElement>(null),
+    Overview: useRef<HTMLDivElement>(null),
     Skills: useRef<HTMLDivElement>(null),
     Project: useRef<HTMLDivElement>(null),
     Contact: useRef<HTMLDivElement>(null),
@@ -79,7 +79,7 @@ const PageContainer = (): JSX.Element => {
       )}
       <Header Tabs={Tabs} setTab={settab} Refs={Refs} />
       <AboutContainer AboutRef={Refs.Aboute} />
-      <CareerContainer CareerRef={Refs.Career} />
+      <OverviewContainer OverviewRef={Refs.Overview} />
       <SkillsContainer SkillsRef={Refs.Skills} />
       <ProjectContainer ProjectRef={Refs.Project} position={position} />
       <ContactContainer ContactRef={Refs.Contact} />

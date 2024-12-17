@@ -1,18 +1,27 @@
 import clsx from "clsx";
-import { ICareer } from "./CareerContainer";
+import { ICareer } from "./OverviewContainer";
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { Observer } from "../../lib/Observer";
 
 interface IProps {
   Profile: ICareer;
   CareerRef: React.RefObject<HTMLDivElement>;
 }
 
-const CareerComp = ({ Profile, CareerRef }: IProps): JSX.Element => {
+const OverviewComp = ({ Profile, CareerRef }: IProps): JSX.Element => {
+  const [view, setview] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    Observer({ state: setview, ref: ref });
+  }, [ref, view]);
   return (
     <div
       className={clsx(
         "mx-auto relative max-w-[1440px] px-[2rem]  pt-[4rem] pb-[4rem] cursor-pointer border-t border-indigo-950 z-[30] overflow-hidden ",
-        "laptop:max-w-[1200px]"
+        "laptop:max-w-[1200px]",
+        "mobile:px-0"
       )}
     >
       <div
@@ -26,17 +35,20 @@ const CareerComp = ({ Profile, CareerRef }: IProps): JSX.Element => {
           )}
         ></div>
         <h1 className="mx-auto relative z-20  px-5 py-2  w-fit rounded-[0.5rem] font-bold text-[1.5rem] text-white bg-purple-950">
-          Career
+          Overview
         </h1>
       </div>
       <div
         className={clsx(
-          "pt-[4rem] ",
+          "pt-[4rem]",
           "desktop:flex desktop:justify-between",
           "laptop:flex laptop:justify-content"
         )}
       >
-        <div className="py-[6rem] mx-auto  w-fit flex justify-center items-center ">
+        <div
+          className="py-[4rem] mx-auto  w-fit flex justify-center items-center "
+          ref={ref}
+        >
           <div className="relative top-[-2rem] left-[1rem]">
             <motion.div
               className="relative w-[3rem] h-[3rem]  z-10"
@@ -83,36 +95,57 @@ const CareerComp = ({ Profile, CareerRef }: IProps): JSX.Element => {
 
         <div className="pt-10">
           {Profile.career.map((item, idx: number) => (
-            <div
-              className={clsx(
-                "my-5 mx-[2rem] bg-white p-[1px] h-[8rem] rounded bg-gradient-to-r from-indigo-500 from-40% via-pink-500 via-60% to-indigo-500",
-                "hover:scale-[1.1] hover:transition hover:delay-150 hover:duration-300 hover:ease-in-out hover:border-[1px] hover:border-purple-500"
-              )}
+            <motion.div
               key={idx}
+              initial={{ opacity: 0, translateX: 50 }}
+              animate={view && { opacity: 1, translateX: 0 }}
+              transition={{
+                opacity: { delay: 0.1, duration: 1.2 },
+                translateX: {
+                  duration: 0.7,
+                  delay: `0.${4 + idx}`,
+                },
+              }}
             >
-              <div className="px-[2rem] py-[1rem] w-[100%] h-[100%]  rounded bg-indigo-950">
+              <div
+                className={clsx(
+                  "my-5 mx-[2rem] bg-white p-[1px]  h-fit rounded bg-gradient-to-r from-indigo-500 from-40% via-pink-500 via-60% to-indigo-500",
+                  "hover:scale-[1.1] hover:transition hover:delay-150 hover:duration-300 hover:ease-in-out hover:border-[1px] hover:border-purple-500"
+                )}
+              >
                 <div
                   className={clsx(
-                    "pe-5 mx-auto w-fit  text-green-300",
-                    "mobile:text-[0.9rem]"
+                    "py-[1rem] w-[100%] h-[100%] px-[2rem]   rounded bg-indigo-950",
+                    "mobile:px-[4px]"
                   )}
                 >
-                  {item.date}
-                </div>
-
-                <div className="py-[1rem] flex items-center">
-                  <div className="px-[1rem]">{item.icon}</div>
-                  <p
-                    className={clsx(
-                      "text-white text-[1.2rem]",
-                      "mobile:text-[0.8rem]"
-                    )}
-                  >
-                    {item.content}
-                  </p>
+                  <div className="py-[1rem] flex items-center">
+                    {
+                      <div
+                        className={clsx(
+                          "w-[5rem] font-bold text-center text-[1.4rem] text-green-300",
+                          "mobile:text-[0.8rem]",
+                          "tablet:text-[1.2rem]"
+                        )}
+                      >
+                        {item.title}
+                      </div>
+                    }
+                    <div
+                      className={clsx(
+                        "text-white text-[1.2rem] px-[4rem]",
+                        "mobile:px-0 mobile:text-[0.7rem]",
+                        "tablet:text-[1rem]"
+                      )}
+                    >
+                      {item.content.map((data: JSX.Element, num: number) => (
+                        <ul key={num}>{data}</ul>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -120,4 +153,4 @@ const CareerComp = ({ Profile, CareerRef }: IProps): JSX.Element => {
   );
 };
 
-export default CareerComp;
+export default OverviewComp;

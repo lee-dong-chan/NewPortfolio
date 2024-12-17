@@ -39,9 +39,11 @@ const AbouteComp = ({ about, AboutRef }: IProps): JSX.Element => {
             )}
           >
             <p>안녕하세요,</p>
+
             <span>
               <span>
-                저는 <span className="text-green-400">신입프론트엔드</span>
+                저는 <span>문제점을 찾기보다 해결책을 찾는 </span>
+                <span className="text-green-400">프론트엔드</span>
                 개발자,
               </span>
               <span>
@@ -69,7 +71,7 @@ const AbouteComp = ({ about, AboutRef }: IProps): JSX.Element => {
         <CodeBox
           className={clsx(
             "mx-[1rem] max-w-[40rem] max-h-[30rem]",
-            "tablet:max-w-[100%] tablet:max-h-[40rem]",
+            "tablet:mx-auto w-[100%] tablet:max-h-[40rem]",
             "mobile:mx-0 w-[100%] mobile:max-h-[40rem]"
           )}
         >
@@ -79,40 +81,41 @@ const AbouteComp = ({ about, AboutRef }: IProps): JSX.Element => {
       <div
         className={clsx(
           "pt-[2.5rem] flex",
-          // "laptop: justify-between ",
-          // "desktop: justify-between ",
+
           "tablet:flex-col-reverse gap-[1rem]",
           "mobile:flex-col-reverse gap-[1rem]"
         )}
       >
         <div className={"px-[2rem]"}>
           <h1 className="text-[2rem] font-bold text-green-300">Who I am?</h1>
-          <div className="py-[2rem] text-[1.1rem] max-w-[45rem]  text-white font-bold">
-            <p>
-              <span className="pe-1">
-                신입 프론트엔드 개발자 이동찬 입니다.
-              </span>
-              <span className="pe-1">
-                저는 새로운 기술을 배워나가기 위해 노력하는 자세와 문제
-                해결의지를 가지고 있으며 스스로 학습하는것을 중요하게
-                생각합니다.
-              </span>
-              <span className="pe-1">
-                자바스크립트를 기반으로 두고있으며, 타입스크립트 및 리액트를
-                사용하여 프로젝트를 만드는것을 선호합니다.
-              </span>
-              <span className="pe-1">
-                한자리에 머물러 있지않고 꾸준하게 나아가는 프론트엔드 개발자가
-                되고 싶습니다.
-              </span>
-            </p>
+          <div className="py-[2rem]  max-w-[45rem]  text-white ">
+            {about.strength.map(
+              (
+                item: {
+                  title: string;
+                  content: string[];
+                },
+                idx: number
+              ) => (
+                <ul key={idx}>
+                  <h1 className="py-[1rem] text-[1.5rem] font-bold text-indigo-300 ">
+                    {item.title}
+                  </h1>
+                  {item.content.map((item: string, idx: number) => (
+                    <li className="px-[1rem] py-[2px] text-[1.1rem]" key={idx}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )
+            )}
           </div>
         </div>
-        <div className={"py-[1rem] flex"}>
+        <div className={"py-[1rem] flex items-center"}>
           <img
             className={clsx(
-              "w-[16rem] h-[18rem] rounded-[1rem] opacity-[0.9] z-40 ",
-              "hover:scale-[1.2] hover:transition hover:delay-150 hover:duration-300 hover:ease-in-out hover:opacity-[1]",
+              "w-[16rem] h-[18rem] rounded-[1rem]  z-40 ",
+              "hover:scale-[1.2] hover:transition hover:delay-150 hover:duration-300 hover:ease-in-out ",
               "tablet:mx-auto",
               "mobile:mx-auto"
             )}
