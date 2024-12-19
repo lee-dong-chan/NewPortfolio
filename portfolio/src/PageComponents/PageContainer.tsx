@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Header from "./Header/Header";
 
 import SkillsContainer from "./Skills/SkillsContainer";
@@ -17,6 +17,7 @@ export interface IRefs {
   Project: React.RefObject<HTMLDivElement>;
   Contact: React.RefObject<HTMLDivElement>;
 }
+const Tabs: string[] = ["About", "Career", "Skills", "Project", "Contact"];
 
 const PageContainer = (): JSX.Element => {
   const [, settab] = useState<number>(0);
@@ -29,20 +30,16 @@ const PageContainer = (): JSX.Element => {
     Contact: useRef<HTMLDivElement>(null),
   };
 
-  const Tabs: string[] = useMemo(() => {
-    return ["About", "Career", "Skills", "Project", "Contact"];
-  }, []);
-
-  const CheckScreen = () => {
+  const CheckScreen = useCallback(() => {
     setposition(window.scrollY);
-  };
+  }, []);
 
   useEffect(() => {
     window.addEventListener("scroll", CheckScreen);
     return () => {
       window.removeEventListener("scroll", CheckScreen);
     };
-  }, []);
+  }, [CheckScreen]);
 
   return (
     <div className="relative w-[100%] h-fit bg-gradient-to-r from-indigo-950 from-10% via-indigo-700 via-50% to-indigo-950 to-90%">

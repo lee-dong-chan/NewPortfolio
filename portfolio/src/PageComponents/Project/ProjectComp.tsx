@@ -2,8 +2,9 @@ import clsx from "clsx";
 import CodeBox from "../../Component/CodeBox";
 import { IProject } from "./ProjectContainer";
 import ProjectContent from "../../Component/ProjectContent";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 interface IProps {
   project: IProject[];
   ProjectRef: React.RefObject<HTMLDivElement>;
@@ -13,21 +14,46 @@ interface IProps {
 const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
   const [tab, settab] = useState<number>(0);
   const [imgNumber, setImgNumber] = useState<number>(0);
-  const Ref = {
-    ref1: useRef<HTMLDivElement>(null),
-    ref2: useRef<HTMLDivElement>(null),
-    ref3: useRef<HTMLDivElement>(null),
-    ref4: useRef<HTMLDivElement>(null),
-    ref5: useRef<HTMLDivElement>(null),
-  };
-  const Refs = Object.values(Ref);
-  const Key = [tab, imgNumber].join("-");
-  useEffect(() => {
-    if (Ref.ref1.current && Ref.ref1.current?.getBoundingClientRect().top > 90)
+
+  const ref1 = useRef<HTMLDivElement>(null);
+  const ref2 = useRef<HTMLDivElement>(null);
+  const ref3 = useRef<HTMLDivElement>(null);
+  const ref4 = useRef<HTMLDivElement>(null);
+  const ref5 = useRef<HTMLDivElement>(null);
+
+  const Ref = useMemo(
+    () => ({
+      ref1,
+      ref2,
+      ref3,
+      ref4,
+      ref5,
+    }),
+    []
+  );
+
+  const Refs = useMemo(() => Object.values(Ref), [Ref]);
+
+  const Key = useMemo(() => {
+    return [tab, imgNumber].join("-");
+  }, [tab, imgNumber]);
+
+  const handleImageClick = useCallback(
+    (idx: number) => {
+      setImgNumber(idx);
+    },
+    [setImgNumber]
+  );
+
+  const checkScrollPosition = useCallback(() => {
+    if (
+      Ref.ref1.current &&
+      Ref.ref1.current?.getBoundingClientRect().top > 90
+    ) {
       settab(0);
-    if (Ref.ref1.current?.getBoundingClientRect().top === 90) {
-      settab(1);
+      return;
     }
+    if (Ref.ref1.current?.getBoundingClientRect().top === 90) settab(1);
     if (Ref.ref2.current?.getBoundingClientRect().top === 90) settab(2);
     if (Ref.ref3.current?.getBoundingClientRect().top === 90) settab(3);
     if (Ref.ref4.current?.getBoundingClientRect().top === 90) settab(4);
@@ -37,7 +63,12 @@ const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
     ) {
       settab(5);
     }
-  }, [position, Ref.ref1, Ref.ref2, Ref.ref3, Ref.ref4, Ref.ref5]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    checkScrollPosition();
+  }, [position, checkScrollPosition]);
 
   useEffect(() => {
     setImgNumber(0);
@@ -89,11 +120,15 @@ const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
               )}
             >
               <div className="relative  w-[100%] h-[100%] rounded-[1rem] z-[15] overflow-hidden">
-                <img
-                  className={`w-[100%] h-[100%]`}
+                <LazyLoadImage
+                  className={`w-[100%] h-[100%]  rounded-[1rem]`}
                   src={`/imgs/${project[tab - 1].img[imgNumber]}`}
                   alt="project"
-                ></img>
+                  width="100%"
+                  height="100%"
+                  wrapperClassName="w-full h-full"
+                  style={{ display: "block" }}
+                ></LazyLoadImage>
               </div>
               <motion.div
                 key={Key}
@@ -120,9 +155,7 @@ const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
                         className={
                           "relative p-[1px] w-[15px] h-[15px] border-gray-500 rounded bg-purple-700  "
                         }
-                        onClick={() => {
-                          setImgNumber(idx);
-                        }}
+                        onClick={() => handleImageClick(idx)}
                       >
                         <div
                           className={clsx(
