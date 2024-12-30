@@ -10,14 +10,23 @@ import { FaArrowUp } from "react-icons/fa";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import OverviewContainer from "./Summation/OverviewContainer";
+import ExperienceContainer from "./Experience/ExperienceContainer";
 export interface IRefs {
   Aboute: React.RefObject<HTMLDivElement>;
   Overview: React.RefObject<HTMLDivElement>;
   Skills: React.RefObject<HTMLDivElement>;
   Project: React.RefObject<HTMLDivElement>;
   Contact: React.RefObject<HTMLDivElement>;
+  Experience: React.RefObject<HTMLDivElement>;
 }
-const Tabs: string[] = ["About", "Career", "Skills", "Project", "Contact"];
+const Tabs: string[] = [
+  "About",
+  "Career",
+  "Skills",
+  "Project",
+  "Experience",
+  "Contact",
+];
 
 const PageContainer = (): JSX.Element => {
   const [, settab] = useState<number>(0);
@@ -28,6 +37,7 @@ const PageContainer = (): JSX.Element => {
     Skills: useRef<HTMLDivElement>(null),
     Project: useRef<HTMLDivElement>(null),
     Contact: useRef<HTMLDivElement>(null),
+    Experience: useRef<HTMLDivElement>(null),
   };
 
   const CheckScreen = useCallback(() => {
@@ -79,6 +89,7 @@ const PageContainer = (): JSX.Element => {
       <OverviewContainer OverviewRef={Refs.Overview} />
       <SkillsContainer SkillsRef={Refs.Skills} />
       <ProjectContainer ProjectRef={Refs.Project} position={position} />
+      <ExperienceContainer ExperienceRef={Refs.Experience} />
       <ContactContainer ContactRef={Refs.Contact} />
     </div>
   );

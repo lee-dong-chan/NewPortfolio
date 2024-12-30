@@ -30,8 +30,7 @@ const OverviewComp = ({ Profile, CareerRef }: IProps): JSX.Element => {
       >
         <div
           className={clsx(
-            "border absolute z-10 w-[20rem] h-[1px] border-purple-950",
-            "mobile:hidden"
+            "border absolute z-10 w-[20rem] h-[1px] border-purple-950"
           )}
         ></div>
         <h1 className="mx-auto relative z-20  px-5 py-2  w-fit rounded-[0.5rem] font-bold text-[1.5rem] text-white bg-purple-950">
