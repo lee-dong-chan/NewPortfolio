@@ -69,6 +69,10 @@ const OverviewContainer = ({ OverviewRef }: IProps): JSX.Element => {
             <span className={textGradiant}>Git/GitHub</span>를 통한 협업가능
           </li>,
           <li>
+            <span className={textGradiant}>GitHub Actions</span>를 통한 CI/CD
+            파이프라인 구축 경험
+          </li>,
+          <li>
             <span className={textGradiant}>AWS EC2</span>,
             <span className={textGradiant}>NgineX</span>를 통한 프로젝트 배포
             가능

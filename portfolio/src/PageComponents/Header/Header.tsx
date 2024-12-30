@@ -56,6 +56,7 @@ const Header = ({ setTab, Tabs, Refs }: IProps): JSX.Element => {
                     window.scrollY,
                   behavior: "smooth",
                 });
+
               idx === 3 &&
                 Refs &&
                 Refs.Project &&
@@ -68,6 +69,17 @@ const Header = ({ setTab, Tabs, Refs }: IProps): JSX.Element => {
                   behavior: "smooth",
                 });
               idx === 4 &&
+                Refs &&
+                Refs.Experience &&
+                Refs.Experience.current &&
+                window.scrollTo({
+                  top:
+                    Refs.Experience.current?.getBoundingClientRect().top -
+                    20 +
+                    window.scrollY,
+                  behavior: "smooth",
+                });
+              idx === 5 &&
                 Refs &&
                 Refs.Contact &&
                 Refs.Contact.current &&
