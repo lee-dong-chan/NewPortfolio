@@ -1,21 +1,25 @@
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { IExperienceData } from "../ExperienceContainer";
+import React from "react";
 
 interface IProps {
   scrollProgress: number;
   data: IExperienceData[];
-  content: number;
+  content: 0 | 1 | 2 | 3 | 4;
 }
 
 const HeaderComp = ({ scrollProgress, data, content }: IProps): JSX.Element => {
+  const handeltitle = () => {
+    if (content === 0) {
+      return "1.개선사항";
+    } else {
+      return data[content - 1].title;
+    }
+  };
+
   return (
-    <div
-      className={clsx(
-        (scrollProgress === 100 && "hidden") ||
-          (scrollProgress === 0 && "hidden")
-      )}
-    >
+    <div className={clsx(scrollProgress === 0 && "hidden")}>
       <div className="flex items-center">
         <motion.div
           initial={{ width: 0 }}
@@ -28,49 +32,17 @@ const HeaderComp = ({ scrollProgress, data, content }: IProps): JSX.Element => {
           <div className="w-[10px] h-[10px] bg-white rounded-full"></div>
         </div>
       </div>
-      <div className="pt-[2rem] flex text-white text-[2rem] font-bold">
-        {content === 0 && (
-          <motion.h1
-            animate={{ opacity: [0, 1] }}
-            transition={{ duration: 0.5 }}
-          >
-            1.개선사항
-          </motion.h1>
+      <div
+        className={clsx(
+          "pt-[2rem] flex text-white text-[2rem] font-bold",
+          "mobile:text-[1.2rem]"
         )}
-        {content === 1 && (
-          <motion.h1
-            animate={{ opacity: [0, 1] }}
-            transition={{ duration: 0.5 }}
-          >
-            {data[0].title}
-          </motion.h1>
-        )}
-        {content === 2 && (
-          <motion.h1
-            animate={{ opacity: [0, 1] }}
-            transition={{ duration: 0.5 }}
-          >
-            {data[1].title}
-          </motion.h1>
-        )}
-        {content === 3 && (
-          <motion.h1
-            animate={{ opacity: [0, 1] }}
-            transition={{ duration: 0.5 }}
-          >
-            {data[2].title}
-          </motion.h1>
-        )}
-        {content === 4 && (
-          <motion.h1
-            animate={{ opacity: [0, 1] }}
-            transition={{ duration: 0.5 }}
-          >
-            {data[3].title}
-          </motion.h1>
-        )}
+      >
+        <motion.h1 animate={{ opacity: [0, 1] }} transition={{ duration: 0.5 }}>
+          {handeltitle()}
+        </motion.h1>
       </div>
     </div>
   );
 };
-export default HeaderComp;
+export default React.memo(HeaderComp);

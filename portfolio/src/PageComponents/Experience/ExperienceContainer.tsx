@@ -1,4 +1,3 @@
-import { title } from "process";
 import ExperienceComp from "./ExperienceComp";
 
 export interface IExperienceData {
@@ -66,7 +65,8 @@ const ExperienceContainer = ({ ExperienceRef }: IProps) => {
     {
       title: "2.AWS 배포시 발생한 문제해결",
       content: [
-        "1.GitHub Actions를 통하여 프로젝트를 EC2에 자동적으로 배포하면서 빌드시 고용량의 이미지 때문에 프리티어  EC2에 배정된 RAM용량을 초과하는 부하로 인해 EC2가 정지해버리는 문제",
+        "1.GitHub Actions를 통하여 프로젝트를자동적으로 배포하는 도중에 EC2가 정지해버리는 문제가발생하엿습니다.",
+        "해당 문제는 고용량의 이미지 때문에 프리티어 EC2에 배정된 RAM용량을 초과하는 하는것이 원인으로 판단하엿습니다.",
         "2.여러 프로젝트를 각각의 EC2를 통하여 배포하게 되면서 여러EC2사용에따라 발생하는 비용적인 문제",
       ],
       detail: [
@@ -77,7 +77,7 @@ const ExperienceContainer = ({ ExperienceRef }: IProps) => {
             "여러 EC2의 프로젝트를 하나의 EC2로 통합하고 서브도메인을 통하여 하나의 EC2에서 여러프로젝트를 관리하는 형태로 계획하여 필요한 조치들을 수행하엿습니다.",
           ],
           subDetail: {
-            title: "세부 조치 사항",
+            title: "조치 사항",
             content: [
               "여러프로젝트를 관리하기위해 사용할 EC2의 하드디스크 용량을 EC2볼륨 설정을 통하여 확장",
               "모든 프로젝트가 지정된 하나의 EC2에서 작동하도록 설정",
@@ -92,13 +92,15 @@ const ExperienceContainer = ({ ExperienceRef }: IProps) => {
       title: "3.이미지 로딩시의 사용자 경험 개선",
       content: [
         "React 프로젝트에서 스크롤의 일정 위치에 도달했을 때 DOM 요소가 화면 상단에 닿으면 상태값을 변화시켜 이미지 목록을 표시하는 기능을 구현하엿습니다.",
-        "이미지가 나타날 타이밍이 적절하지 않아 사용자 경험에 문제가 발생했습니다.",
-        "문제를 찾아본 결과, 상태값 변화 후 DOM 요소가 먼저 표시되고, 이미지 로딩이 그 이후에 이루어지는 구조에서 문제가 발생하는것으로 판단하엿습니다.",
+        "이미지가 사용자가 이용하는 시점에 제대로 로딩이 완료되지않아 사용자 경험 부정적인 영향을 주었습니다.",
+        "해당문제의 원인은 상태값 변화 후 DOM 요소가 먼저 표시되고, 이미지 로딩이 그 이후에 이루어지는 구조에서 문제가 발생하는것으로 판단하엿습니다.",
       ],
       detail: [
         {
           title: "해결방안",
-          content: ["이미지 로딩 타이밍을 앞당기는 Lazy Loading 기법을 적용"],
+          content: [
+            "이미지 로딩 타이밍을 생성시점이아니라 뷰포트에 들어오는 시점으로 앞당기는 Lazy Loading 기법을 적용",
+          ],
         },
       ],
     },
