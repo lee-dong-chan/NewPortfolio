@@ -65,7 +65,7 @@ const OverviewComp = ({ Profile, CareerRef }: IProps): JSX.Element => {
                 borderRadius: { duration: 5, repeat: Infinity },
                 opacity: { duration: 2, repeat: Infinity },
               }}
-              className="absolute top-8 rotate-[33deg] skew-x-[-27deg]  left-[-1.2rem]  w-[3rem] h-[3rem] rounded-[1rem] border-[3px] border-orange-400 "
+              className="absolute top-8 rotate-[33deg] skew-x-[-27deg]  left-[-0.8rem]  w-[3rem] h-[3rem] rounded-[1rem] border-[3px] border-orange-400 "
             ></motion.div>
           </div>
           <div className="relative">

@@ -12,13 +12,23 @@ interface IProps {
 
 const ExperienceComp = ({ ExperienceRef, data }: IProps) => {
   const ref = useRef<HTMLDivElement>(null);
-
   const { scrollY } = useScroll();
   const [scrollProgress, setScrollProgress] = useState(0);
-
+  const [scrollDirection, setScrollDirection] = useState<boolean>(true);
+  const [content, setContent] = useState<0 | 1 | 2 | 3 | 4>(0);
+  const prevScrollY = useRef(0);
   useEffect(() => {
     const ControleScroll = () => {
       if (!ref.current) return;
+
+      const currentScrollY = scrollY.get();
+      if (currentScrollY > prevScrollY.current) {
+        setScrollDirection(false);
+      } else if (currentScrollY < prevScrollY.current) {
+        setScrollDirection(true);
+      }
+      prevScrollY.current = currentScrollY;
+
       const element = ref.current;
       const elementRect = element.getBoundingClientRect();
       const windowHeight = window.innerHeight;
@@ -35,7 +45,6 @@ const ExperienceComp = ({ ExperienceRef, data }: IProps) => {
 
     return scrollY.on("change", ControleScroll);
   }, [scrollY]);
-  const [content, setContent] = useState(0);
 
   useEffect(() => {
     if (scrollProgress > 20 && scrollProgress < 40) {
@@ -88,9 +97,10 @@ const ExperienceComp = ({ ExperienceRef, data }: IProps) => {
         }
         {
           <CardComp
-            data={data}
+            data={data[content - 1]}
             scrollProgress={scrollProgress}
             content={content}
+            scrollDirection={scrollDirection}
           />
         }
       </div>
