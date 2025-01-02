@@ -26,7 +26,10 @@ const SkillsComp = ({ icons, SkillsRef }: IProps) => {
       )}
     >
       <div
-        className="mx-auto z-0 relative flex w-[20rem] items-center"
+        className={clsx(
+          "mx-auto z-0 relative flex w-[20rem] items-center",
+          "mobile:scale-[0.8]"
+        )}
         ref={SkillsRef}
       >
         <div
@@ -39,7 +42,12 @@ const SkillsComp = ({ icons, SkillsRef }: IProps) => {
           Skills
         </h1>
       </div>
-      <div className={"max-w-[1440px] mx-[2rem]  py-[8rem] overflow-hidden"}>
+      <div
+        className={clsx(
+          "max-w-[1440px] mx-[2rem]  py-[8rem] overflow-hidden",
+          " mobile:mx-[1rem] mobile:mx-[1rem] mobile:py-[4rem]"
+        )}
+      >
         <motion.div
           key={slide ? "on" : "off"}
           className="w-fit  gap-10 flex "
@@ -71,19 +79,35 @@ const SkillsComp = ({ icons, SkillsRef }: IProps) => {
             <div
               className={clsx(
                 "w-[10rem] h-[10rem] p-[1px] rounded-[0.5rem]  bg-gradient-to-r from-indigo-500 from-40% via-pink-500 via-60% to-indigo-500",
-                "hover:border-[1px] hover:border-purple-500   hover:scale-[1.1] hover:transition hover:delay-150 hover:duration-400 hover:ease-in-out"
+                "hover:border-[1px] hover:border-purple-500   hover:scale-[1.1] hover:transition hover:delay-150 hover:duration-400 hover:ease-in-out",
+                "mobile:w-[5rem] mobile:h-[5rem]"
               )}
               key={idx}
             >
-              <div className="flex flex-col items-center  p-[1rem] w-[100%] h-[100%] rounded-[0.5rem] bg-indigo-950">
-                <div className="w-[5rem] h-[5rem]">
+              <div
+                className={clsx(
+                  "flex flex-col items-center justify-center  p-[1rem] w-[100%] h-[100%] rounded-[0.5rem] bg-indigo-950",
+                  "mobile:p-[0.5rem]"
+                )}
+              >
+                <div
+                  className={clsx(
+                    "w-[5rem] h-[5rem]",
+                    "mobile:w-[2.5rem] mobile:h-[2.5rem]"
+                  )}
+                >
                   <img
                     className="w-[100%] h-[100%]"
                     src={item.icon}
                     alt={`icons${idx}`}
                   ></img>
                 </div>
-                <p className="py-[1rem] text-white text-[1.3rem]">
+                <p
+                  className={clsx(
+                    "py-[1rem] text-white text-[1.3rem]",
+                    "mobile:py-[0.2rem] mobile:text-[0.8rem]"
+                  )}
+                >
                   {item.name}
                 </p>
               </div>

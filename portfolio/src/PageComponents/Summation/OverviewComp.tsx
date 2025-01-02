@@ -25,7 +25,10 @@ const OverviewComp = ({ Profile, CareerRef }: IProps): JSX.Element => {
       )}
     >
       <div
-        className="px-[2rem] mx-auto z-0 relative flex max-w-[20rem] items-center justify-center"
+        className={clsx(
+          "px-[2rem] mx-auto z-0 relative flex max-w-[20rem] items-center justify-center",
+          "mobile:scale-[0.8]"
+        )}
         ref={CareerRef}
       >
         <div
@@ -41,11 +44,15 @@ const OverviewComp = ({ Profile, CareerRef }: IProps): JSX.Element => {
         className={clsx(
           "pt-[4rem]",
           "desktop:flex desktop:justify-between",
-          "laptop:flex laptop:justify-content"
+          "laptop:flex laptop:justify-content",
+          "mobile:pt-[2rem]"
         )}
       >
         <div
-          className="py-[4rem] mx-auto  w-fit flex justify-center items-center "
+          className={clsx(
+            "py-[4rem] mx-auto  w-fit flex justify-center items-center ",
+            "mobile:scale-[0.7] "
+          )}
           ref={ref}
         >
           <div className="relative top-[-2rem] left-[1rem]">

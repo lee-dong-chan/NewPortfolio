@@ -34,11 +34,15 @@ const HeaderComp = ({ scrollProgress, data, content }: IProps): JSX.Element => {
       </div>
       <div
         className={clsx(
-          "pt-[2rem] flex text-white text-[2rem] font-bold",
-          "mobile:text-[1.2rem]"
+          "pt-[2rem] flex text-white font-bold",
+          "mobile:pt-[1rem]"
         )}
       >
-        <motion.h1 animate={{ opacity: [0, 1] }} transition={{ duration: 0.5 }}>
+        <motion.h1
+          animate={{ opacity: [0, 1] }}
+          transition={{ duration: 0.5 }}
+          className={clsx("text-[2rem]", "mobile:text-[1rem]")}
+        >
           {handeltitle()}
         </motion.h1>
       </div>

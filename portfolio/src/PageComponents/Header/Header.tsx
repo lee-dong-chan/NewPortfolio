@@ -64,7 +64,7 @@ const Header = ({ setTab, Tabs, Refs }: IProps): JSX.Element => {
                 window.scrollTo({
                   top:
                     Refs.Project.current?.getBoundingClientRect().top -
-                    20 +
+                    40 +
                     window.scrollY,
                   behavior: "smooth",
                 });

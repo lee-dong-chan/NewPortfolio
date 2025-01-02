@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { IAboute } from "../PageComponents/About/AboutContainer";
 
 interface IProps {
@@ -6,7 +7,12 @@ interface IProps {
 
 const AbouteContent = ({ about }: IProps) => {
   return (
-    <div className="p-[2rem] text-white font-bold text-[1rem] ">
+    <div
+      className={clsx(
+        "py-[2rem] px-[1rem] text-white font-bold ]",
+        "mobile:text-[0.8rem]"
+      )}
+    >
       <p className="py-1 flex items-center">
         <span className="text-pink-500">const</span>
         <span className="px-[4px]">Developer</span>

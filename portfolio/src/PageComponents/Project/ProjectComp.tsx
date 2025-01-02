@@ -14,7 +14,7 @@ interface IProps {
 const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
   const [tab, settab] = useState<number>(0);
   const [imgNumber, setImgNumber] = useState<number>(0);
-
+  const img = new Image();
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
   const ref3 = useRef<HTMLDivElement>(null);
@@ -74,14 +74,26 @@ const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
     setImgNumber(0);
   }, [tab]);
 
+  useEffect(() => {
+    if (tab !== 0 && project[tab - 1].img.length - 1 > imgNumber) {
+      img.src = `/imgs/${project[tab - 1].img[imgNumber + 1]}`;
+    }
+  }, [tab, imgNumber]);
+
   return (
     <div
       className={clsx(
-        "relative max-w-[1440px] mx-auto cursor-pointer overflow-visible z-[30] ",
+        "relative max-w-[1440px]  mx-auto cursor-pointer overflow-visible z-[30] ",
         "laptop:max-w-[1200px]"
       )}
     >
-      <div className="px-[2rem]  flex items-center  " ref={ProjectRef}>
+      <div
+        className={clsx(
+          "px-[2rem] pb-[4rem]  flex items-center  ",
+          "mobile:scale-[0.8]"
+        )}
+        ref={ProjectRef}
+      >
         <div
           className={clsx(
             "relative border  z-10 max-w-[100%] h-[1px] border-purple-950",
@@ -127,6 +139,7 @@ const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
                   width="100%"
                   height="100%"
                   wrapperClassName="w-full h-full"
+                  threshold={500}
                   style={{ display: "block" }}
                 ></LazyLoadImage>
               </div>
@@ -183,9 +196,7 @@ const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
           {project.map((item: IProject, idx: number) => (
             <div
               key={idx}
-              className={clsx(
-                "px-[2rem] w-[100%] sticky z-[20] top-10 flex  gap-[4rem]  "
-              )}
+              className={clsx("w-[100%] sticky z-[20] top-10 flex  gap-[4rem]")}
             >
               <CodeBox
                 className={clsx(

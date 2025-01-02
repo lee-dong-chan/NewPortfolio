@@ -26,7 +26,7 @@ const AbouteComp = ({ about, AboutRef }: IProps): JSX.Element => {
           "laptop: justify-between",
           "desktop:justify-between",
           "tablet: px-[2rem] tablet:flex-col-reverse  tablet:gap-[1rem]",
-          "mobile:px-[1rem] mobile:flex-col-reverse  mobile:gap-[1rem]"
+          "mobile:px-[1rem] mobile:pt-[2rem] mobile:flex-col-reverse  mobile:gap-[1rem]"
         )}
       >
         <div>
@@ -35,34 +35,32 @@ const AbouteComp = ({ about, AboutRef }: IProps): JSX.Element => {
               "px-[1rem] max-w-[37rem] text-white text-[3rem] font-bold",
               "laptop:text-[3rem] max-w-[34rem]",
               "tablet:pt-[2rem] tablet:text-[2.5rem] max-w-[28rem]",
-              "mobile:pt-[2rem] mobile:text-[2.3rem]"
+              "mobile:pt-[2rem] mobile:text-[2.3rem] mobile:text-[2rem]"
             )}
           >
             <p>안녕하세요,</p>
 
             <span>
-              <span>
-                저는 <span>문제점을 찾기보다 해결책을 찾는 </span>
-                <span className="text-green-400">프론트엔드</span>
-                개발자,
-              </span>
-              <span>
-                <span className="text-pink-400">{about.name}</span>입니다.
-              </span>
+              저는 <span>문제점을 찾기보다 해결책을 찾는 </span>
+              <span className="text-green-400">프론트엔드</span>
+              개발자,
+            </span>
+            <span>
+              <span className="text-pink-400">{about.name}</span>입니다.
             </span>
           </div>
-          <div className="py-[3rem] flex gap-5 items-center">
+          <div className="py-[3rem] px-[1rem] flex gap-5 items-center">
             <Link to={`${about.Link[0].link}`} target="_blank">
               <FaGithub
                 className="hover:scale-[1.2]"
-                size={40}
+                size={30}
                 color="hotpink"
               />
             </Link>
             <Link to={`${about.Link[1].link}`} target="_blank">
               <FaBloggerB
                 className="hover:scale-[1.2]"
-                size={40}
+                size={30}
                 color="hotpink"
               />
             </Link>
@@ -72,7 +70,7 @@ const AbouteComp = ({ about, AboutRef }: IProps): JSX.Element => {
           className={clsx(
             "mx-[1rem] max-w-[40rem] max-h-[30rem]",
             "tablet:mx-auto w-[100%] tablet:max-h-[40rem]",
-            "mobile:mx-0 w-[100%] mobile:max-h-[40rem]"
+            "mobile:mx-0  w-[100%] mobile:max-h-[40rem]"
           )}
         >
           <AbouteContent about={about} />
@@ -87,7 +85,14 @@ const AbouteComp = ({ about, AboutRef }: IProps): JSX.Element => {
         )}
       >
         <div className={"px-[2rem]"}>
-          <h1 className="text-[2rem] font-bold text-green-300">Who I am?</h1>
+          <h1
+            className={clsx(
+              "text-[2rem] font-bold text-green-300",
+              "mobile:text-[1.5rem]"
+            )}
+          >
+            Who I am?
+          </h1>
           <div className="py-[2rem]  max-w-[45rem]  text-white ">
             {about.strength.map(
               (
@@ -98,11 +103,22 @@ const AbouteComp = ({ about, AboutRef }: IProps): JSX.Element => {
                 idx: number
               ) => (
                 <ul key={idx}>
-                  <h1 className="py-[1rem] text-[1.5rem] font-bold text-indigo-300 ">
+                  <h1
+                    className={clsx(
+                      "py-[1rem] text-[1.5rem] font-bold text-indigo-300 ",
+                      "mobile:text-[1.1rem]"
+                    )}
+                  >
                     {item.title}
                   </h1>
                   {item.content.map((item: string, idx: number) => (
-                    <li className="px-[1rem] py-[2px] text-[1.1rem]" key={idx}>
+                    <li
+                      className={clsx(
+                        "px-[1rem] py-[2px] text-[1.1rem]",
+                        "mobile:text-[0.8rem]"
+                      )}
+                      key={idx}
+                    >
                       {item}
                     </li>
                   ))}

@@ -29,7 +29,7 @@ const ProjectContainer = ({ ProjectRef, position }: IProps): JSX.Element => {
         "pinterest3.png",
         "pinterest4.png",
       ],
-      link: "https://lee.dsongc.com/",
+      link: "https://pinterest.dsongc.com/",
       page1: {
         info: {
           date: "2024.08.20 ~ 2024.09.19(31일)",

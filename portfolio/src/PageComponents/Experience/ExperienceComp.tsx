@@ -74,7 +74,10 @@ const ExperienceComp = ({ ExperienceRef, data }: IProps) => {
           )}
         ></div>
         <h1
-          className="mx-auto relative z-20  px-5 py-2  w-fit rounded-[0.5rem] font-bold text-[1.5rem] text-white bg-purple-950"
+          className={clsx(
+            "mx-auto relative z-20  px-5 py-2  w-fit rounded-[0.5rem] font-bold text-[1.5rem] text-white bg-purple-950",
+            "mobile:scale-[0.8]"
+          )}
           ref={ExperienceRef}
         >
           Experience

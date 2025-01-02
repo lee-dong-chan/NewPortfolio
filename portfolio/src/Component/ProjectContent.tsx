@@ -10,7 +10,7 @@ const ProjectContent = ({ projectData }: IProps): JSX.Element => {
   return (
     <div
       className={clsx(
-        "px-[2rem] py-[2rem]",
+        "px-[1rem] py-[2rem]",
         "mobile:px-[1rem] mobile:py-[1rem] mobile:text-[0.7rem]"
       )}
     >
@@ -20,7 +20,7 @@ const ProjectContent = ({ projectData }: IProps): JSX.Element => {
         <span className="px-1 text-pink-500 font-bold">=</span>
         <span className="px-1 text-white font-bold">{"{"}</span>
       </div>
-      <div className={clsx("ps-[2rem]", "mobile:ps-[1rem]")}>
+      <div className={clsx("ps-[1rem]", "mobile:ps-[1rem]")}>
         <div className="pt-1">
           <span className="text-white font-bold">link</span>
           <span className="text-white font-bold">:</span>

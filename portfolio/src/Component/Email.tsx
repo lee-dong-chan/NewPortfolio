@@ -26,7 +26,7 @@ export const ContactMe = ({ className }: IProps): JSX.Element => {
         )
         .then(
           (result) => {
-            setMessage("sucess");
+            setMessage("success");
             setName("");
             setEmail("");
             setText("");
@@ -43,7 +43,6 @@ export const ContactMe = ({ className }: IProps): JSX.Element => {
       <h1 className="w-[100%] py-[2rem] text-[1.2rem] text-green-300 font-bold">
         CONTACT WITH ME
       </h1>
-
       <form
         className="p-[1rem] border border-gray-800 rounded-[0.5rem] bg-indigo-950"
         ref={form}
