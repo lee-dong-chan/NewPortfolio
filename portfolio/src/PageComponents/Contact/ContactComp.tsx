@@ -26,7 +26,8 @@ const ContactComp = ({ ContactRef }: IProps): JSX.Element => {
           className={clsx(
             "px-[2rem] py-[4rem] mx-auto z-0 relative flex max-w-[20rem] items-center",
             "desktop:hidden",
-            "laptop:hidden"
+            "laptop:hidden",
+            "mobile:scale-[0.8]"
           )}
         >
           <h1 className="mx-auto relative z-20  px-5 py-2  w-fit rounded-[0.5rem] font-bold text-[1.5rem] text-white bg-purple-950">
@@ -44,17 +45,23 @@ const ContactComp = ({ ContactRef }: IProps): JSX.Element => {
           )}
         >
           <div className="p-5 flex items-center gap-5">
-            <div className="border p-[0.4rem] rounded-[1rem] bg-purple-300">
+            <div
+              className={clsx("border p-[0.4rem] rounded-[1rem] bg-purple-300")}
+            >
               <FaMailBulk size={20} />
             </div>
-            <div className="text-white text-[1.2rem] font-bold">
+
+            <div className={clsx("text-white text-[1.2rem] font-bold")}>
               dsongc3082@naver.com
             </div>
           </div>
           <div className="p-5 flex items-center gap-5">
-            <div className="border p-[0.4rem] rounded-[1rem] bg-purple-300">
+            <div
+              className={clsx("border p-[0.4rem] rounded-[1rem] bg-purple-300")}
+            >
               <FaPhone size={20} />
             </div>
+
             <div className="text-white text-[1.2rem]  font-bold">
               010-2030-4394
             </div>

@@ -101,10 +101,9 @@ const ListComp = ({ data, scrollProgress, content }: IProps) => {
         {data.map((item, idx: number) => (
           <motion.div
             key={idx}
-            initial={{ opacity: 0, translateX: 50 }}
             animate={
               scrollProgress !== 0 && scrollProgress < 18
-                ? { opacity: 1, translateX: 0 }
+                ? { opacity: [0, 1], translateX: [50, 0] }
                 : {
                     opacity: 0,
                     translateX: 50,

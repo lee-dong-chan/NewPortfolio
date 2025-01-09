@@ -64,7 +64,8 @@ const ExperienceComp = ({ ExperienceRef, data }: IProps) => {
     <div
       ref={ref}
       className={clsx(
-        "mx-auto relative max-w-[1440px] h-[500rem] px-[2rem]  pt-[4rem] pb-[4rem]  cursor-pointer border-t border-indigo-950 z-[30] "
+        "mx-auto relative max-w-[1440px] h-[500rem] px-[2rem]  pt-[4rem] pb-[4rem]  cursor-pointer border-t border-indigo-950 z-[30] ",
+        scrollProgress === 0 && "overflow-hidden"
       )}
     >
       <div className="px-[2rem] mx-auto z-0 relative flex max-w-[20rem] items-center justify-center">

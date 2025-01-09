@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -ms-overflow-style: none;
+  over-flow-x: hidden;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -13,4 +14,12 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  over-flow-x: hidden;
 }

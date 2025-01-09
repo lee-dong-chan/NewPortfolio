@@ -21,7 +21,7 @@ export interface IRefs {
 }
 const Tabs: string[] = [
   "About",
-  "Career",
+  "OverView",
   "Skills",
   "Project",
   "Experience",

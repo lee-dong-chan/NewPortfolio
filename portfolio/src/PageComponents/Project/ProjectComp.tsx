@@ -78,6 +78,7 @@ const ProjectComp = ({ project, ProjectRef, position }: IProps) => {
     if (tab !== 0 && project[tab - 1].img.length - 1 > imgNumber) {
       img.src = `/imgs/${project[tab - 1].img[imgNumber + 1]}`;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tab, imgNumber]);
 
   return (

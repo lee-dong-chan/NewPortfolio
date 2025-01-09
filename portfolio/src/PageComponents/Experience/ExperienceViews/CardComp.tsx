@@ -25,12 +25,12 @@ const CardComp = ({
           transition={{ delay: 0.5, duration: 0.5 }}
           key={content}
           className={clsx(
-            "relative px-[2rem] text-white",
+            "px-[2rem] text-white",
             "mobile:px-[1rem] mobile:pt-[1rem]",
             scrollProgress === 0 && "hidden"
           )}
         >
-          <motion.ul className="absolute">
+          <motion.ul>
             <motion.h1
               className={clsx(
                 "py-[1rem] text-[1.3rem] text-blue-400 font-bold",
