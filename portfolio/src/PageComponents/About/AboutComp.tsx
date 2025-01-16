@@ -33,7 +33,7 @@ const AbouteComp = ({ about, AboutRef }: IProps): JSX.Element => {
           <div
             className={clsx(
               "px-[1rem] max-w-[37rem] text-white text-[3rem] font-bold",
-              "laptop:text-[3rem] max-w-[34rem]",
+              "laptop:text-[2.7rem] max-w-[34rem]",
               "tablet:pt-[2rem] tablet:text-[2.5rem] max-w-[28rem]",
               "mobile:pt-[2rem] mobile:text-[2.3rem] mobile:text-[2rem]"
             )}
@@ -46,6 +46,7 @@ const AbouteComp = ({ about, AboutRef }: IProps): JSX.Element => {
               개발자,
             </span>
             <span>
+              {<br className="hidden laptop:block" />}
               <span className="text-pink-400">{about.name}</span>입니다.
             </span>
           </div>

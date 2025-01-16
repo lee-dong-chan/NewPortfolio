@@ -12,7 +12,7 @@ interface IProps {
 const HeaderComp = ({ scrollProgress, data, content }: IProps): JSX.Element => {
   const handeltitle = () => {
     if (content === 0) {
-      return "1.개선사항";
+      return "개선사항";
     } else {
       return data[content - 1].title;
     }

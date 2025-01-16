@@ -62,9 +62,9 @@ const ProjectContainer = ({ ProjectRef, position }: IProps): JSX.Element => {
           text: [
             "세션 및 GoogleOauth를 사용하여 로그인 구현",
             "정규표현식을 사용하여 모바일 기기접속을 체크하고 반응형 페이지 구현.",
-            "Framer.motion라이브러리를 사용하여 에니메이션 배너를 구현.",
-            "useInfiniteQuery을 사용하여 무한스크롤을 구현하고 Mansoy 카드형레이아웃을 구현.",
-            "로딩페이지 및 에러 페이지 적용",
+            "Framer.motion라이브러리를 사용하여 애니메이션 배너를 구현.",
+            "useInfiniteQuery을 사용하여 무한스크롤을 구현하고 Mansoy 카드형레이아웃을 적용.",
+            "로딩 및 에러 페이지 적용",
           ],
         },
       },
